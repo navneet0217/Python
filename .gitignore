@@ -1,0 +1,17 @@
+# Environment variables & configuration files
+.env
+*.env
+
+# Mouse mover script
+mouse_mover.py
+mouse_move*
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
