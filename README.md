@@ -8,91 +8,99 @@ Welcome to the **Python Learning Repository**! This repository tracks a structur
 
 | Chapter | Title | Status | Link |
 | :--- | :--- | :---: | :--- |
-| **01** | **Python Fundamentals** | 🟢 Completed | [01_python_fundamentals.py](file:///d:/Python/Chapter%201%20-%20Python%20Fundamentals/01_python_fundamentals.py) |
-| **02** | **Control Flow & Decision Making** | ⏳ Upcoming | `Chapter 2 - Control Flow` |
-| **03** | **Loops & Iteration** | ⏳ Upcoming | `Chapter 3 - Loops` |
-| **04** | **Functions & Scope** | ⏳ Upcoming | `Chapter 4 - Functions` |
-| **05** | **Data Structures in Depth** | ⏳ Upcoming | `Chapter 5 - Data Structures` |
-| **06** | **Object-Oriented Programming (OOP)** | ⏳ Upcoming | `Chapter 6 - OOP` |
-| **07** | **File I/O & Exception Handling** | ⏳ Upcoming | `Chapter 7 - File IO` |
-| **08** | **Modules, Packages & Virtual Envs** | ⏳ Upcoming | `Chapter 8 - Modules` |
+| **01** | **Python Fundamentals** | 🟢 Completed | [`01_python_fundamentals.py`](file:///d:/Python/CHAPTER%201%20%E2%80%94%20Python%20Fundamentals/01_python_fundamentals.py) |
+| **02** | **Python Strings** | 🟢 Completed | [`02_python_strings.py`](file:///d:/Python/CHAPTER%202%20%E2%80%94%20Python%20Strings/02_python_strings.py) |
+| **03** | **Python Numbers** | 🟢 Completed | [`03_python_numbers.py`](file:///d:/Python/CHAPTER%203%20%E2%80%94%20Python%20Numbers/03_python_numbers.py) |
+| **04** | **Python Logic & Operators** | 🟢 Completed | [`04_python_logic_and_operators.py`](file:///d:/Python/CHAPTER%204%20%E2%80%94%20Python%20Logic%20&%20Operators/04_python_logic_and_operators.py) |
+| **05** | **Python Conditional Statements** | 🟢 Completed | [`05_conditional_statements.py`](file:///d:/Python/CHAPTER%205%20%E2%80%94%20Python%20Conditional%20Statements/05_conditional_statements.py) |
+| **06** | **Loops & Iteration** | ⏳ Upcoming | `CHAPTER 6 — Python Loops` |
+| **07** | **Functions & Scope** | ⏳ Upcoming | `CHAPTER 7 — Python Functions` |
+| **08** | **Data Structures in Depth** | ⏳ Upcoming | `CHAPTER 8 — Data Structures` |
 
 ---
 
 ## 📖 Chapter Breakdown
 
 ### 📘 Chapter 1 — Python Fundamentals
-📁 **Directory:** [`Chapter 1 - Python Fundamentals`](file:///d:/Python/Chapter%201%20-%20Python%20Fundamentals)  
-📄 **Main Script:** [`01_python_fundamentals.py`](file:///d:/Python/Chapter%201%20-%20Python%20Fundamentals/01_python_fundamentals.py)
+📁 **Directory:** [`CHAPTER 1 — Python Fundamentals`](file:///d:/Python/CHAPTER%201%20%E2%80%94%20Python%20Fundamentals)  
+📄 **Main Script:** [`01_python_fundamentals.py`](file:///d:/Python/CHAPTER%201%20%E2%80%94%20Python%20Fundamentals/01_python_fundamentals.py)
 
 #### 🎯 Key Concepts Covered:
-1. **What Is Python & How It Works**
-   - High-level, interpreted, dynamically-typed language.
-   - Pipeline: `.py` Source Code ➔ Bytecode (`.pyc`) ➔ Python Virtual Machine (PVM) ➔ Machine Code.
-2. **Installing & Running Python**
-   - Verification (`python --version`), REPL mode, running scripts (`python main.py`).
-3. **Comments & `print()`**
-   - Single-line (`#`) & Multi-line (`"""..."""`) comments.
-   - `print()` arguments (`sep`, `end`), escape sequences (`\n`, `\t`), and `f-strings`.
-4. **Variables & Memory**
-   - Naming rules (snake_case, valid initial characters, keyword restrictions).
-   - Dynamic typing, variable swapping (`a, b = b, a`), and object identity (`id()`).
-5. **User `input()` & Type Casting**
-   - Reading input as `str`, converting via `int()`, `float()`, `bool()`, `str()`.
-6. **Python Data Types**
-   - Primitives: `int`, `float`, `complex`, `str`, `bool`, `NoneType`.
-   - Collections preview: `list`, `tuple`, `dict`, `set`.
-   - Type inspection: `type()` and `isinstance()`.
+1. **Execution & Setup:** `.py` Source Code ➔ Bytecode (`.pyc`) ➔ PVM ➔ Machine Code.
+2. **Output & Formatting:** `print()` parameters (`sep`, `end`), escape sequences, f-strings.
+3. **Variables & Memory:** Dynamic typing, object identity (`id()`), Pythonic variable swapping.
+4. **Data Types & Casting:** `int`, `float`, `complex`, `str`, `bool`, `NoneType`, `type()`, `isinstance()`.
+
+
+### 🔤 Chapter 2 — Python Strings
+📁 **Directory:** [`CHAPTER 2 — Python Strings`](file:///d:/Python/CHAPTER%202%20%E2%80%94%20Python%20Strings)  
+📄 **Main Script:** [`02_python_strings.py`](file:///d:/Python/CHAPTER%202%20%E2%80%94%20Python%20Strings/02_python_strings.py)
+
+#### 🎯 Key Concepts Covered:
+1. **Types & Math:** `type()`, `str()`, `len()`, `count()`.
+2. **Transformations:** `replace()`, concatenation (`+`), repetition (`*`), f-strings (`f"{}"`), `split()`.
+3. **Extraction:** Indexing (`[0]`, `[-1]`), Slicing (`[start:stop:step]`), string reversal (`[::-1]`).
+4. **Cleaning:** `strip()`, `lstrip()`, `rstrip()`, casing (`lower()`, `upper()`, `title()`, `capitalize()`).
+5. **Searching:** `in`, `not in`, `find()`, `rfind()`, `startswith()`, `endswith()`.
+6. **Validation:** `isalpha()`, `isnumeric()`, `isalnum()`, `isspace()`.
+
+
+### 🔢 Chapter 3 — Python Numbers
+📁 **Directory:** [`CHAPTER 3 — Python Numbers`](file:///d:/Python/CHAPTER%203%20%E2%80%94%20Python%20Numbers)  
+📄 **Main Script:** [`03_python_numbers.py`](file:///d:/Python/CHAPTER%203%20%E2%80%94%20Python%20Numbers/03_python_numbers.py)
+
+#### 🎯 Key Concepts Covered:
+1. **Numeric Types:** `int`, `float`, `complex`, and type conversion (`int()`, `float()`).
+2. **Math Operators:** `+`, `-`, `*`, `/`, `//` (floor div), `%` (modulus), `**` (exponentiation).
+3. **Rounding Functions:** `abs()`, `round()`, `math.ceil()`, `math.floor()`, `math.trunc()`.
+4. **Advanced Math:** `math.sqrt()`, `math.sin()`, `math.cos()`, `math.log()`.
+5. **Random Numbers:** `random.random()`, `random.randint()`.
+6. **Validation:** `float.is_integer()`, `isinstance()`.
+
+
+### ⚡ Chapter 4 — Python Logic & Operators
+📁 **Directory:** [`CHAPTER 4 — Python Logic & Operators`](file:///d:/Python/CHAPTER%204%20%E2%80%94%20Python%20Logic%20&%20Operators)  
+📄 **Main Script:** [`04_python_logic_and_operators.py`](file:///d:/Python/CHAPTER%204%20%E2%80%94%20Python%20Logic%20&%20Operators/04_python_logic_and_operators.py)
+
+#### 🎯 Key Concepts Covered:
+1. **Boolean Values & Functions:** `True`, `False`, `bool()`, `any()`, `all()`, `isinstance()`.
+2. **Comparison Operators:** `==`, `!=`, `<`, `>`, `>=`, `<=`.
+3. **Logical Operators:** `and`, `or`, `not` (short-circuit evaluation).
+4. **Membership Operators:** `in`, `not in`.
+5. **Identity Operators:** `is`, `is not` (memory location vs value equality `==`).
+6. **Practice Exercises:** 5 real-world logic validation questions.
+
+
+### 🔀 Chapter 5 — Python Conditional Statements
+📁 **Directory:** [`CHAPTER 5 — Python Conditional Statements`](file:///d:/Python/CHAPTER%205%20%E2%80%94%20Python%20Conditional%20Statements)  
+📄 **Main Script:** [`05_conditional_statements.py`](file:///d:/Python/CHAPTER%205%20%E2%80%94%20Python%20Conditional%20Statements/05_conditional_statements.py)
+
+#### 🎯 Key Concepts Covered:
+1. **Control Flow:** `if`, `elif`, `else` decision branches.
+2. **Nested `if` vs Guard Clauses:** Deeply nested conditionals vs flat early-exit `if-elif-else`.
+3. **Ternary Operator:** `value_if_true if condition else value_if_false`.
+4. **Pattern Matching (Python 3.10+):** `match-case` statements.
+5. **Email Validation Challenge:** 3 distinct approaches (Nested `if`, Guard Clauses, Regex `re.match`).
 
 ---
 
-## ⚡ Quick Recap Cheat Sheet
+## 🚀 How to Run the Scripts
 
-### 1. `print()` Customizations & F-Strings
-```python
-# Custom separator and end character
-print("2026", "09", "10", sep="-", end="\n\n")
-
-# F-String Formatting
-name = "Dev"
-score = 98.5
-print(f"User: {name} | Score: {score:.2f}%")
-```
-
-### 2. Variable Rotation & Dynamic Typing
-```python
-# Pythonic Swapping (No temp variable needed)
-a, b, c = 10, 20, 30
-a, b, c = b, c, a  # a=20, b=30, c=10
-
-# Type Checking
-x = 42
-print(isinstance(x, int))  # True
-```
-
-### 3. User Input & Casting
-```python
-age_str = input("Enter age: ")  # Returns str
-age = int(age_str)              # Cast to int for arithmetic operations
-```
-
----
-
-## 🏋️ Practice Questions Summary (Basic ➔ Medium)
-
-The python script includes testable implementations for the following practice problems:
-
-1. **Q1 (Basic Calculator):** Read two numbers, cast to float, and output formatted arithmetic (Sum, Difference, Product, Quotient).
-2. **Q2 (String Parsing & Math):** Extract float value from formatted price string `"$49.99"` and calculate total for multiple items.
-3. **Q3 (3-Variable Rotation):** Rotate values across 3 variables without using auxiliary storage.
-4. **Q4 (Debugging Challenge):** Identify and resolve syntax/type concatenation bugs in raw code snippets.
-
----
-
-## 🚀 How to Run the Examples
-
-Open your terminal in the workspace root (`d:\Python`) and execute:
+Open your terminal in the workspace root (`d:\Python`) and run any script:
 
 ```bash
-python "Chapter 1 - Python Fundamentals/01_python_fundamentals.py"
+# Chapter 1 - Fundamentals
+python "CHAPTER 1 — Python Fundamentals/01_python_fundamentals.py"
+
+# Chapter 2 - Strings
+python "CHAPTER 2 — Python Strings/02_python_strings.py"
+
+# Chapter 3 - Numbers
+python "CHAPTER 3 — Python Numbers/03_python_numbers.py"
+
+# Chapter 4 - Logic & Operators
+python "CHAPTER 4 — Python Logic & Operators/04_python_logic_and_operators.py"
+
+# Chapter 5 - Conditional Statements
+python "CHAPTER 5 — Python Conditional Statements/05_conditional_statements.py"
 ```
