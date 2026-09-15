@@ -1,123 +1,184 @@
 """
 ================================================================================
-CHAPTER 5: PYTHON CONDITIONAL STATEMENTS & EMAIL VALIDATION
+CHAPTER 5: PYTHON CONDITIONAL STATEMENTS - COMPLETE REFERENCE GUIDE
 ================================================================================
-Topics Covered:
-1. if, elif, else
-2. Nested if statements
-3. Guard Clauses (Flat if-elif-else)
-4. Ternary Operator (One-line if-else)
-5. Match-Case (Python 3.10+)
-6. Regex Validation (import re)
-
-Email Rules to Validate:
-1. Email must not be empty
-2. Email must contain both '.' and '@'
-3. Email must contain exactly one '@' symbol
-4. Email must end with and contain exactly one '.com', '.org', or '.net'
-5. Email must not be longer than 254 characters
-6. Email must start and end with a letter or digit (isalnum)
+Sequential Concept Breakdown:
+1. Basic Control Flow   : if, elif, else
+2. Nested if Statements : Hierarchical decision trees
+3. Guard Clauses        : Flat early-exit validation (if-elif-else)
+4. Ternary Operator     : One-line if-else expressions
+5. Match-Case           : Structural pattern matching (Python 3.10+)
+6. Regex Validation     : Pattern matching using import re
+7. Practical Project 1  : Email Validation Challenge
+8. Practical Project 2  : Password Quality & Correctness Validation Challenge
 ================================================================================
 """
 
 import re
 
-emailAddress = "navneetanand17360@gmail.com"
+# ================================================================================
+# 1. BASIC CONTROL FLOW: if, elif, else
+# ================================================================================
+print("=== 1. Basic Control Flow (if, elif, else) ===")
+
+score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+
+print(f"Score: {score} -> Grade: {grade}")
 
 
 # ================================================================================
-# APPROACH 1: Nested if Statements (Fixed & Corrected)
+# 2. NESTED IF STATEMENTS (Hierarchical Checks)
 # ================================================================================
-print("--- Approach 1: Nested if ---")
+print("\n=== 2. Nested if Statements ===")
 
-if emailAddress and len(emailAddress) > 0:
-    if '.' in emailAddress and '@' in emailAddress:
-        if emailAddress.count('@') == 1:
-            if (emailAddress.count('.com') + emailAddress.count('.org') + emailAddress.count('.net')) == 1 and emailAddress.endswith(('.com', '.org', '.net')):
-                if len(emailAddress) <= 254:
-                    if emailAddress[0].isalnum() and emailAddress[-1].isalnum():
-                        print("valid")
-                    else:
-                        print("invalid: Must start and end with a letter or digit")
-                else:
-                    print("invalid: Exceeds 254 characters")
-            else:
-                print("invalid: Must contain exactly one valid extension (.com, .org, .net)")
-        else:
-            print("invalid: Must contain exactly one '@' symbol")
+age = 20
+has_ticket = True
+
+if age >= 18:
+    if has_ticket:
+        print("Access Granted: Welcome to the event!")
     else:
-        print("invalid: Must contain both '.' and '@'")
+        print("Access Denied: Ticket required.")
 else:
-    print("invalid: Email cannot be empty")
+    print("Access Denied: Underage.")
 
 
 # ================================================================================
-# APPROACH 2: Guard Clauses with if-elif-else (Clean & Recommended)
+# 3. GUARD CLAUSES / FLAT IF-ELIF-ELSE (Early Exits)
 # ================================================================================
-print("\n--- Approach 2: Guard Clauses (if-elif-else) ---")
+print("\n=== 3. Guard Clauses (Flat if-elif-else) ===")
 
-valid_extensions_count = (
-    emailAddress.count('.com') + emailAddress.count('.org') + emailAddress.count('.net')
-)
+user_role = "editor"
+account_active = True
 
-if not emailAddress:
-    print("invalid: Email cannot be empty")
-elif '.' not in emailAddress or '@' not in emailAddress:
-    print("invalid: Missing '.' or '@'")
-elif emailAddress.count('@') != 1:
-    print("invalid: Must contain exactly one '@'")
-elif valid_extensions_count != 1 or not emailAddress.endswith(('.com', '.org', '.net')):
-    print("invalid: Must contain exactly one extension (.com, .org, .net)")
-elif len(emailAddress) > 254:
-    print("invalid: Exceeds 254 characters")
-elif not (emailAddress[0].isalnum() and emailAddress[-1].isalnum()):
-    print("invalid: First and last characters must be alphanumeric")
+if not account_active:
+    print("Denied: Account suspended.")
+elif user_role == "admin":
+    print("Granted: Full Admin Access.")
+elif user_role == "editor":
+    print("Granted: Editor Content Access.")
 else:
-    print("valid")
+    print("Granted: Standard Viewer Access.")
 
 
 # ================================================================================
-# APPROACH 3: Regular Expressions (Regex - Professional Standard)
-# ================================================================================
-print("\n--- Approach 3: Regex (re.match) ---")
-
-# Regex breakdown:
-# ^[a-zA-Z0-9]        -> Starts with letter or digit
-# [a-zA-Z0-9._%+-]*   -> Allowed characters before '@'
-# @                   -> Exactly one '@' symbol
-# [a-zA-Z0-9.-]+      -> Domain name
-# \.(com|org|net)$    -> Ends with .com, .org, or .net
-pattern = r"^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.(com|org|net)$"
-
-if len(emailAddress) <= 254 and re.match(pattern, emailAddress):
-    print("valid")
-else:
-    print("invalid")
-
-
-# ================================================================================
-# BONUS 1: Ternary Operator (One-line if-else)
+# 4. TERNARY OPERATOR (One-line if-else)
 # Syntax: value_if_true if condition else value_if_false
 # ================================================================================
-print("\n--- Bonus 1: Ternary Operator ---")
+print("\n=== 4. Ternary Operator ===")
 
-is_valid_email = True if (emailAddress.count('@') == 1 and emailAddress.endswith(('.com', '.org', '.net'))) else False
-print("Is valid email?:", is_valid_email)
+age_check = 20
+status = "Adult" if age_check >= 18 else "Minor"
+print(f"Age {age_check}: {status}")
 
 
 # ================================================================================
-# BONUS 2: Match-Case Statement (Python 3.10+)
+# 5. MATCH-CASE STATEMENT (Python 3.10+ Pattern Matching)
 # ================================================================================
-print("\n--- Bonus 2: Match-Case ---")
+print("\n=== 5. Match-Case Statement ===")
 
-status_code = 200
+http_status = 200
 
-match status_code:
+match http_status:
     case 200:
-        print("Success: Email processed successfully")
+        response = "200 OK: Success"
     case 400:
-        print("Error: Bad Request - Invalid Email Format")
+        response = "400 Bad Request"
     case 404:
-        print("Error: Email domain not found")
+        response = "404 Not Found"
+    case 500:
+        response = "500 Internal Server Error"
     case _:
-        print("Unknown Status Code")
+        response = "Unknown Status Code"
+
+print("HTTP Response:", response)
+
+
+# ================================================================================
+# 6. REGEX VALIDATION (import re)
+# ================================================================================
+print("\n=== 6. Regex Validation (re.match) ===")
+
+zip_code = "90210"
+is_valid_zip = bool(re.match(r"^\d{5}$", zip_code))
+print(f"Zip '{zip_code}' Valid?:", is_valid_zip)
+
+
+# ================================================================================
+# 7. PRACTICAL CHALLENGE 1: EMAIL VALIDATION
+# Rules:
+# 1. Must not be empty
+# 2. Must contain both '.' and '@'
+# 3. Must contain exactly one '@'
+# 4. Must contain exactly one '.com', '.org', or '.net' and end with it
+# 5. Must not be longer than 254 chars
+# 6. Must start and end with alphanumeric character
+# ================================================================================
+print("\n=== 7. Practical Challenge 1: Email Validation ===")
+
+email = "navneetanand17360@gmail.com"
+
+ext_count = email.count('.com') + email.count('.org') + email.count('.net')
+
+if not email:
+    email_result = "invalid: Email cannot be empty"
+elif '.' not in email or '@' not in email:
+    email_result = "invalid: Missing '.' or '@'"
+elif email.count('@') != 1:
+    email_result = "invalid: Must contain exactly one '@'"
+elif ext_count != 1 or not email.endswith(('.com', '.org', '.net')):
+    email_result = "invalid: Must contain exactly one valid extension"
+elif len(email) > 254:
+    email_result = "invalid: Exceeds 254 characters"
+elif not (email[0].isalnum() and email[-1].isalnum()):
+    email_result = "invalid: First and last chars must be alphanumeric"
+else:
+    email_result = "valid"
+
+print(f"Email '{email}' -> {email_result}")
+
+
+# ================================================================================
+# 8. PRACTICAL CHALLENGE 2: PASSWORD QUALITY & CORRECTNESS VALIDATION
+# Rules:
+# 1. Must not be empty
+# 2. Must be at least 8 characters
+# 3. Must include at least 1 uppercase letter
+# 4. Must include at least 1 lowercase letter
+# 5. Must not be same as the email
+# 6. Must not contain any spaces
+# 7. Must start and end with a letter or digit
+# ================================================================================
+print("\n=== 8. Practical Challenge 2: Password Validation ===")
+
+sample_password = "Abd@17360"
+sample_email = "navneetanand17360@gmail.com"
+
+if not sample_password:
+    pwd_result = "invalid: Password cannot be empty"
+elif len(sample_password) < 8:
+    pwd_result = "invalid: Password must be at least 8 characters"
+elif sample_password.lower() == sample_password:
+    pwd_result = "invalid: Must contain at least 1 uppercase letter"
+elif sample_password.upper() == sample_password:
+    pwd_result = "invalid: Must contain at least 1 lowercase letter"
+elif sample_password == sample_email:
+    pwd_result = "invalid: Password cannot be the same as email"
+elif " " in sample_password:
+    pwd_result = "invalid: Password must not contain spaces"
+elif not (sample_password[0].isalnum() and sample_password[-1].isalnum()):
+    pwd_result = "invalid: Must start and end with a letter or digit"
+else:
+    pwd_result = "valid"
+
+print(f"Password '{sample_password}' -> {pwd_result}")
+
