@@ -1,115 +1,135 @@
 """
-================================================================================
-CHAPTER 3: PYTHON NUMBERS - COMPLETE REFERENCE GUIDE
-================================================================================
-Based on the Numeric Concept Map:
-1. Types          : type(), int(), float(), complex()
-2. Math Operators : +, -, *, /, //, %, **
-3. Rounding       : abs(), round(), math.ceil(), math.floor(), math.trunc()
-4. Advanced Math  : math.sqrt(), math.sin(), math.cos(), math.log()
-5. Random         : random.random(), random.randint()
-6. Validation     : .is_integer(), isinstance()
-================================================================================
+Python Numbers — Basic se Medium tak
+=====================================
+Cover kar rahe hain: number types, math operators, rounding,
+advanced math (sqrt/sin/cos/log), random numbers, aur validation.
+Har section ke end mein practice questions hain — pehle khud try karo,
+phir SOLUTIONS section dekho.
 """
 
 import math
 import random
 
-
-# ================================================================================
-# 1. NUMERIC TYPES: int, float, complex
-# ================================================================================
-# Integers are whole numbers (positive or negative)
+# ============================================================
+# 1. NUMBER TYPES KYA HAIN?
+# ============================================================
 num_int = 10
-print("Integer:", num_int, "| Type:", type(num_int))  # <class 'int'>
-
-# Floats are decimal numbers
 num_float = 3.14
-print("Float:", num_float, "| Type:", type(num_float))  # <class 'float'>
+num_complex = 2 + 3j  # j = sqrt(-1)
 
-# Complex numbers have real and imaginary parts (j represents sqrt(-1))
-num_complex = 2 + 3j
-print("Complex:", num_complex, "| Type:", type(num_complex))  # <class 'complex'>
+print("1. Types:")
+print("   int:", num_int, "->", type(num_int).__name__)
+print("   float:", num_float, "->", type(num_float).__name__)
+print("   complex:", num_complex, "->", type(num_complex).__name__)
 
-# Type Conversions
-print("int(3.8):", int(3.8))      # 3 (converts to int by dropping decimals)
-print("float(5):", float(5))      # 5.0 (converts int to float)
+print("   int(3.8):", int(3.8), "(decimal drop ho jata hai)")
+print("   float(5):", float(5))
 
 
-# ================================================================================
-# 2. MATH OPERATORS
-# ================================================================================
+# ============================================================
+# 2. MATH OPERATORS KAISE KAAM KARTE HAIN?
+# ============================================================
 a, b = 3, 2
-
-print("Addition (+):", a + b)           # 3 + 2 = 5
-print("Subtraction (-):", a - b)        # 3 - 2 = 1
-print("Multiplication (*):", a * b)     # 3 * 2 = 6
-print("Division (/):", a / b)           # 3 / 2 = 1.5 (always returns a float)
-print("Floor Division (//):", a // b)   # 3 // 2 = 1 (rounds down to whole number)
-print("Modulus / Remainder (%):", a % b) # 3 % 2 = 1 (remainder after division)
-print("Exponentiation (**):", a ** b)   # 3 ** 2 = 9 (3 raised to power of 2)
-
-
-# ================================================================================
-# 3. ROUNDING FUNCTIONS
-# ================================================================================
-# abs() -> Returns absolute (positive) value
-print("abs(-5):", abs(-5))              # 5
-
-# round() -> Rounds to nearest integer or specified decimal places
-print("round(3.7):", round(3.7))        # 4
-print("round(3.14159, 2):", round(3.14159, 2))  # 3.14
-
-# math.ceil() -> Always rounds UP to next integer
-print("math.ceil(3.2):", math.ceil(3.2))  # 4
-
-# math.floor() -> Always rounds DOWN to previous integer
-print("math.floor(3.8):", math.floor(3.8))  # 3
-
-# math.trunc() -> Truncates (cuts off) decimals towards zero
-print("math.trunc(3.9):", math.trunc(3.9))  # 3
+print("\n2. Operators (a=3, b=2):")
+print("   a + b  :", a + b)
+print("   a - b  :", a - b)
+print("   a * b  :", a * b)
+print("   a / b  :", a / b, "(hamesha float return karta hai)")
+print("   a // b :", a // b, "(floor division — round down)")
+print("   a % b  :", a % b, "(modulus — remainder)")
+print("   a ** b :", a ** b, "(power)")
 
 
-# ================================================================================
-# 4. ADVANCED MATH FUNCTIONS (math module)
-# ================================================================================
-print("math.sqrt(16):", math.sqrt(16))    # 4.0 (square root)
-print("math.sin(0):", math.sin(0))        # 0.0 (sine of angle in radians)
-print("math.cos(0):", math.cos(0))        # 1.0 (cosine of angle in radians)
-print("math.log(10):", math.log(10))      # 2.30258... (natural log base e)
+# ============================================================
+# 3. ROUNDING KAISE KAREIN?
+# ============================================================
+print("\n3. Rounding:")
+print("   abs(-5):", abs(-5))
+print("   round(3.7):", round(3.7))
+print("   round(3.14159, 2):", round(3.14159, 2))
+print("   math.ceil(3.2):", math.ceil(3.2), "(hamesha upar)")
+print("   math.floor(3.8):", math.floor(3.8), "(hamesha neeche)")
+print("   math.trunc(3.9):", math.trunc(3.9), "(decimal cut, zero ki taraf)")
 
 
-# ================================================================================
-# 5. RANDOM NUMBER GENERATION (random module)
-# ================================================================================
-# random.random() -> Returns random float between 0.0 and 1.0
-print("random.random():", random.random())
-
-# random.randint(a, b) -> Returns random integer between a and b (inclusive)
-print("random.randint(1, 100):", random.randint(1, 100))
-
-
-# ================================================================================
-# 6. NUMERIC VALIDATION
-# ================================================================================
-# .is_integer() -> Checks if float has no fractional part (e.g. 4.0 is int-like)
-val1 = 4.0
-val2 = 4.5
-print("(4.0).is_integer():", val1.is_integer())  # True
-print("(4.5).is_integer():", val2.is_integer())  # False
-
-# isinstance() -> Checks if a variable belongs to a specific data type
-print("isinstance(5, int):", isinstance(5, int))        # True
-print("isinstance(3.14, float):", isinstance(3.14, float))  # True
+# ============================================================
+# 4. ADVANCED MATH (math module)
+# ============================================================
+print("\n4. Advanced math:")
+print("   math.sqrt(16):", math.sqrt(16))
+print("   math.sin(0):", math.sin(0))
+print("   math.cos(0):", math.cos(0))
+print("   math.log(10):", math.log(10), "(natural log, base e)")
 
 
-# ================================================================================
-# PRACTICAL EXERCISE: Random Even Number Check
-# Question: Generate a random integer from 1 to 100 and check if it is even
-# ================================================================================
-rand_num = random.randint(1, 100)
-is_even = (rand_num % 2 == 0)
+# ============================================================
+# 5. RANDOM NUMBERS KAISE GENERATE KAREIN?
+# ============================================================
+print("\n5. Random:")
+print("   random.random():", random.random(), "(0.0 se 1.0 ke beech)")
+print("   random.randint(1, 100):", random.randint(1, 100), "(dono end inclusive)")
 
-print("\n--- Practical Exercise Output ---")
-print("Generated Number:", rand_num)
-print("Is Even?:", is_even)
+
+# ============================================================
+# 6. NUMBER VALIDATE KAISE KAREIN?
+# ============================================================
+val1, val2 = 4.0, 4.5
+print("\n6. Validation:")
+print("   (4.0).is_integer():", val1.is_integer())
+print("   (4.5).is_integer():", val2.is_integer())
+print("   isinstance(5, int):", isinstance(5, int))
+print("   isinstance(3.14, float):", isinstance(3.14, float))
+
+
+# ============================================================
+# PRACTICE — Basic to Medium
+# ============================================================
+"""
+Q1 (Basic): 17 ko 5 se divide karo — normal division (/), floor division
+            (//), aur modulus (%) teeno print karo.
+
+Q2 (Basic): Ek number 7.567 ko round karke 2 decimal places tak print karo,
+            phir math.ceil() aur math.floor() bhi laga kar dekho.
+
+Q3 (Medium): random.randint(1, 100) se ek number generate karo aur check
+             karo ki woh even hai ya odd (% operator use karo).
+
+Q4 (Medium): Ek right-angled triangle ke do sides diye hain: base=3, height=4.
+             math.sqrt() use karke hypotenuse nikalo
+             (formula: sqrt(base**2 + height**2)).
+"""
+
+
+# ============================================================
+# SOLUTIONS
+# ============================================================
+
+def practice_solutions():
+    print("\n--- PRACTICE SOLUTIONS ---")
+
+    # Q1
+    print(f"Q1 -> 17/5: {17 / 5} | 17//5: {17 // 5} | 17%5: {17 % 5}")
+
+    # Q2
+    n = 7.567
+    print(f"Q2 -> round: {round(n, 2)} | ceil: {math.ceil(n)} | floor: {math.floor(n)}")
+
+    # Q3
+    rand_num = random.randint(1, 100)
+    is_even = rand_num % 2 == 0
+    print(f"Q3 -> number: {rand_num} | even? {is_even}")
+
+    # Q4
+    base, height = 3, 4
+    hypotenuse = math.sqrt(base ** 2 + height ** 2)
+    print(f"Q4 -> hypotenuse: {hypotenuse}")
+
+
+if __name__ == "__main__":
+    practice_solutions()
+
+
+# ============================================================
+# Suggested commit message
+# ============================================================
+# feat: add python numbers basics-to-medium practice script

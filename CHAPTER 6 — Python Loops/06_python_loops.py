@@ -1,831 +1,184 @@
 """
-============================================================
-CHAPTER 6 — PYTHON LOOPS
-============================================================
-
-Topics:
-1. For Loops
-2. Break, Continue, Pass
-3. For-Else & Nested Loops
-4. While Loops
-
-Beginner Friendly Revision
-============================================================
+Python Loops — Basic se Medium tak
+====================================
+Cover kar rahe hain: for loop, break/continue/pass, for-else,
+nested loops, aur while loop.
+Har section ke end mein practice questions hain — pehle khud try karo,
+phir SOLUTIONS section dekho.
 """
-
 
 # ============================================================
-# 1. FOR LOOP
+# 1. FOR LOOP KAISE CHALTA HAI?
 # ============================================================
-
-"""
-A for loop is used when we want to repeat
-something multiple times.
-
-Basic syntax:
-
-for variable in sequence:
-    code
-"""
-
-
-# Example 1
+print("1. Basic for loop (0 se 4 tak):")
 for i in range(5):
-    print(i)
+    print("  ", i)
 
-"""
-Output:
-0
-1
-2
-3
-4
-
-Remember:
-range(5) starts from 0
-and stops BEFORE 5.
-"""
-
-
-# Example 2
+print("   range(1, 6) -> 1 se 5 tak:")
 for i in range(1, 6):
-    print(i)
+    print("  ", i)
 
-"""
-Output:
-1
-2
-3
-4
-5
-"""
-
-
-# Example 3 — step
+print("   range(1, 10, 2) -> step 2 ke saath:")
 for i in range(1, 10, 2):
-    print(i)
+    print("  ", i)
 
-"""
-Output:
-1
-3
-5
-7
-9
-"""
-
-
-# Example 4 — reverse
+print("   range(5, 0, -1) -> reverse:")
 for i in range(5, 0, -1):
-    print(i)
+    print("  ", i)
 
-"""
-Output:
-5
-4
-3
-2
-1
-"""
+# String pe bhi loop chala sakte ho
+print("   String pe loop:")
+for ch in "cat":
+    print("  ", ch)
 
 
 # ============================================================
-# 2. FOR LOOP WITH A STRING
+# 2. BREAK, CONTINUE, PASS KYA KARTE HAIN?
 # ============================================================
-
-word = "Python"
-
-for character in word:
-    print(character)
-
-
-"""
-Each character is processed one by one.
-"""
-
-
-# ============================================================
-# 3. SIMPLE TABLE USING FOR LOOP
-# ============================================================
-
-n = 7
-
-for i in range(1, 11):
-    print(f"{n} x {i} = {n * i}")
-
-
-# ============================================================
-# 4. BREAK
-# ============================================================
-
-"""
-break = completely stop the loop.
-"""
-
-for i in range(1, 10):
-
-    if i == 5:
+print("\n2. break -> loop ko turant rok deta hai")
+for n in range(10):
+    if n == 4:
         break
+    print("  ", n)
 
-    print(i)
+print("   continue -> is iteration ko skip karke aage badh jata hai")
+for n in range(6):
+    if n % 2 == 0:
+        continue  # even numbers skip
+    print("  ", n)
 
-"""
-Output:
-1
-2
-3
-4
-
-As soon as i becomes 5,
-the loop stops.
-"""
-
-
-# ============================================================
-# 5. BREAK — SIMPLE EXAMPLE
-# ============================================================
-
-for i in range(10):
-
-    if i == 3:
-        break
-
-    print("Running:", i)
-
-
-"""
-break is useful when we have found
-what we were looking for and don't
-need to continue.
-"""
+print("   pass -> kuch nahi karta, sirf placeholder hai")
+for n in range(3):
+    if n == 1:
+        pass  # baad mein logic likhenge
+    print("  ", n)
 
 
 # ============================================================
-# 6. CONTINUE
+# 3. FOR-ELSE KYA HOTA HAI?
 # ============================================================
-
-"""
-continue = skip the current iteration
-and move to the next iteration.
-"""
-
-for i in range(1, 6):
-
-    if i == 3:
-        continue
-
-    print(i)
-
-"""
-Output:
-1
-2
-4
-5
-
-Only 3 was skipped.
-The loop did NOT stop.
-"""
-
-
-# ============================================================
-# 7. CONTINUE — EVEN NUMBERS
-# ============================================================
-
-for i in range(1, 11):
-
-    if i % 2 != 0:
-        continue
-
-    print(i)
-
-"""
-Output:
-2
-4
-6
-8
-10
-"""
-
-
-# ============================================================
-# 8. PASS
-# ============================================================
-
-"""
-pass = do nothing.
-
-It is mainly used as a placeholder
-when we want to write the code later.
-"""
-
-for i in range(5):
-
-    if i == 2:
-        pass
-
-    print(i)
-
-
-"""
-pass does NOT:
-    - stop the loop
-    - skip the iteration
-
-It simply does nothing.
-"""
-
-
-# ============================================================
-# 9. BREAK vs CONTINUE vs PASS
-# ============================================================
-
-"""
-break
------
-Stops the entire loop.
-
-
-continue
---------
-Skips the current iteration.
-
-
-pass
-----
-Does nothing.
-
-
-Easy way to remember:
-
-break    -> STOP
-continue -> SKIP
-pass     -> DO NOTHING
-"""
-
-
-# ============================================================
-# 10. FOR-ELSE
-# ============================================================
-
-"""
-A for loop can have an else block.
-
-The else runs when the loop finishes
-WITHOUT using break.
-"""
-
-for i in range(5):
-    print(i)
-
+# else block tabhi chalta hai jab loop 'break' na hua ho.
+print("\n3. for-else (bina break):")
+for n in range(3):
+    print("  ", n)
 else:
-    print("Loop finished")
+    print("   Loop pura chala, koi break nahi hua!")
 
-
-# ============================================================
-# 11. FOR-ELSE WITH BREAK
-# ============================================================
-
-for i in range(5):
-
-    if i == 3:
+print("   for-else (search example — number dhoondo):")
+numbers = [4, 8, 15, 16, 23, 42]
+target = 15
+for n in numbers:
+    if n == target:
+        print(f"   {target} mil gaya!")
         break
-
-    print(i)
-
 else:
-    print("Loop finished")
-
-
-"""
-Here "Loop finished" is NOT printed.
-
-Why?
-
-Because break was used.
-
-Important:
-
-for-else:
-
-NO break -> else runs
-break     -> else does not run
-"""
+    print(f"   {target} nahi mila.")
 
 
 # ============================================================
-# 12. FOR-ELSE — SEARCH EXAMPLE
+# 4. NESTED LOOPS KAISE KAAM KARTE HAIN?
 # ============================================================
-
-numbers = [10, 20, 30, 40]
-
-target = 30
-
-for number in numbers:
-
-    if number == target:
-        print("Found")
-        break
-
-else:
-    print("Not Found")
-
-
-"""
-If target is not found,
-the loop finishes normally,
-so else runs.
-"""
-
-
-# ============================================================
-# 13. NESTED LOOPS
-# ============================================================
-
-"""
-A loop inside another loop
-is called a nested loop.
-
-Example:
-
-for i:
-    for j:
-        ...
-"""
-
-
-for i in range(3):
-
-    for j in range(3):
-
-        print(i, j)
-
-
-"""
-Outer loop:
-0
-1
-2
-
-For EACH outer loop,
-inner loop runs 3 times.
-"""
-
-
-# ============================================================
-# 14. NESTED LOOP — SIMPLE PATTERN
-# ============================================================
-
-for i in range(1, 4):
-
-    for j in range(1, 4):
-
-        print("*", end=" ")
-
-    print()
-
-
-"""
-Output:
-
-* * *
-* * *
-* * *
-"""
-
-
-# ============================================================
-# 15. NESTED LOOP — STAR TRIANGLE
-# ============================================================
-
-for i in range(1, 6):
-
-    for j in range(i):
-
+print("\n4. Nested loop — star triangle:")
+for row in range(1, 4):
+    for _ in range(row):
         print("*", end="")
+    print()  # naya line
 
+print("   Nested loop — number pattern:")
+for row in range(1, 4):
+    for col in range(1, row + 1):
+        print(col, end=" ")
     print()
 
 
-"""
-Output:
-
-*
-**
-***
-****
-*****
-"""
-
-
 # ============================================================
-# 16. NESTED LOOP — NUMBER PATTERN
+# 5. WHILE LOOP KAISE CHALTA HAI?
 # ============================================================
-
-for i in range(1, 6):
-
-    for j in range(i):
-
-        print(i, end="")
-
-    print()
-
-
-"""
-Output:
-
-1
-22
-333
-4444
-55555
-"""
-
-
-# ============================================================
-# 17. BREAK IN NESTED LOOP
-# ============================================================
-
-"""
-If break is inside the inner loop,
-it stops ONLY the inner loop.
-"""
-
-for i in range(3):
-
-    for j in range(5):
-
-        if j == 2:
-            break
-
-        print(i, j)
-
-
-"""
-The outer loop continues.
-
-Remember:
-
-break affects the loop in which
-it is written.
-"""
-
-
-# ============================================================
-# 18. WHILE LOOP
-# ============================================================
-
-"""
-A while loop runs as long as
-the condition is True.
-
-Syntax:
-
-while condition:
-    code
-"""
-
-
-# Example
-i = 1
-
-while i <= 5:
-
-    print(i)
-
-    i += 1
-
-
-"""
-Output:
-1
-2
-3
-4
-5
-"""
-
-
-# ============================================================
-# 19. WHY i += 1 IS IMPORTANT
-# ============================================================
-
-i = 1
-
-while i <= 5:
-
-    print(i)
-
-    i += 1
-
-
-"""
-Every time the loop runs,
-i increases.
-
-Eventually:
-
-i <= 5
-
-becomes False.
-
-Then the loop stops.
-"""
-
-
-# ============================================================
-# 20. INFINITE LOOP — IMPORTANT
-# ============================================================
-
-"""
-Be careful:
-
-i = 1
-
-while i <= 5:
-    print(i)
-
-Here i never changes.
-
-So i will ALWAYS be 1.
-
-The condition will always be True.
-
-This creates an infinite loop.
-
-Correct:
-
-i = 1
-
-while i <= 5:
-    print(i)
-    i += 1
-"""
-
-
-# ============================================================
-# 21. WHILE LOOP — REVERSE
-# ============================================================
-
-i = 5
-
-while i >= 1:
-
-    print(i)
-
-    i -= 1
-
-
-"""
-Output:
-
-5
-4
-3
-2
-1
-"""
-
-
-# ============================================================
-# 22. WHILE LOOP WITH BREAK
-# ============================================================
-
-i = 1
-
-while i <= 10:
-
-    if i == 5:
+print("\n5. while loop (0 se 4 tak):")
+count = 0
+while count < 5:
+    print("  ", count)
+    count += 1  # yeh line miss mat karna, warna infinite loop ho jayega!
+
+print("   while loop with break:")
+count = 0
+while True:
+    if count == 3:
         break
-
-    print(i)
-
-    i += 1
+    print("  ", count)
+    count += 1
 
 
+# ============================================================
+# 6. FOR vs WHILE — KAB KONSA USE KAREIN?
+# ============================================================
+print("\n6. for -> jab pata ho kitni baar repeat karna hai (fixed sequence)")
+print("   while -> jab tak ek condition True hai, tab tak chalate raho")
+
+
+# ============================================================
+# PRACTICE — Basic to Medium
+# ============================================================
 """
-Output:
+Q1 (Basic): 1 se 10 tak sirf even numbers print karo (for loop + continue,
+            ya range step 2).
 
-1
-2
-3
-4
+Q2 (Basic): while loop use karke 5 se 1 tak countdown print karo, aur end
+            mein "Liftoff!" print karo.
+
+Q3 (Medium): Ek list of numbers diya hai. for-else use karke check karo
+             ki usme koi negative number hai ya nahi.
+
+Q4 (Medium): Nested loop use karke ek multiplication table print karo
+             (1 se 3 tak, 1 se 3 tak) format: "1 x 1 = 1".
 """
 
 
 # ============================================================
-# 23. WHILE LOOP WITH CONTINUE
+# SOLUTIONS
 # ============================================================
 
-i = 0
+def practice_solutions():
+    print("\n--- PRACTICE SOLUTIONS ---")
 
-while i < 5:
+    # Q1
+    print("Q1 ->", end=" ")
+    for n in range(1, 11):
+        if n % 2 != 0:
+            continue
+        print(n, end=" ")
+    print()
 
-    i += 1
+    # Q2
+    print("Q2 ->")
+    count = 5
+    while count >= 1:
+        print("  ", count)
+        count -= 1
+    print("   Liftoff!")
 
-    if i == 3:
-        continue
+    # Q3
+    nums_q3 = [4, 8, 15, 16, 23, 42]
+    print("Q3 ->", end=" ")
+    for n in nums_q3:
+        if n < 0:
+            print("Negative number mila!")
+            break
+    else:
+        print("Koi negative number nahi hai.")
 
-    print(i)
-
-
-"""
-Output:
-
-1
-2
-4
-5
-"""
-
-
-# ============================================================
-# 24. FOR LOOP vs WHILE LOOP
-# ============================================================
-
-"""
-FOR LOOP
---------
-
-Use when you are going through
-a known sequence or range.
-
-Example:
-
-for i in range(5):
-    print(i)
+    # Q4
+    print("Q4 ->")
+    for i in range(1, 4):
+        for j in range(1, 4):
+            print(f"   {i} x {j} = {i * j}")
 
 
-WHILE LOOP
-----------
-
-Use when the loop should continue
-while a condition is True.
-
-Example:
-
-while i < 5:
-    print(i)
-    i += 1
-
-
-Simple rule:
-
-FOR   -> repeat over a range/sequence
-WHILE -> repeat while a condition is True
-"""
+if __name__ == "__main__":
+    practice_solutions()
 
 
 # ============================================================
-# 25. BEGINNER PRACTICE QUESTIONS
+# Suggested commit message
 # ============================================================
-
-"""
-Try these yourself BEFORE checking the answers.
-
-Q1.
-Print numbers from 1 to 10.
-
-Q2.
-Print numbers from 10 to 1.
-
-Q3.
-Print even numbers from 1 to 20.
-
-Q4.
-Print odd numbers from 1 to 20.
-
-Q5.
-Print the table of 7.
-
-Q6.
-Print each character of "Python".
-
-Q7.
-Use break to stop a loop when
-the number reaches 5.
-
-Q8.
-Use continue to skip number 5.
-
-Q9.
-Print this pattern:
-
-*
-**
-***
-****
-*****
-
-Q10.
-Print this pattern:
-
-*****
-****
-***
-**
-*
-
-Q11.
-Use for-else to search for 30
-in a sequence.
-
-Q12.
-Use a while loop to print
-1 to 5.
-
-Q13.
-Use a while loop to print
-5 to 1.
-
-Q14.
-Use nested loops to print:
-
-***
-***
-***
-
-Q15.
-Explain in your own words:
-
-break
-continue
-pass
-"""
-
-
-# ============================================================
-# 26. QUICK REVISION
-# ============================================================
-
-"""
-FOR LOOP
---------
-
-for i in range(5):
-    print(i)
-
-
-BREAK
------
-
-Stops the loop completely.
-
-
-CONTINUE
---------
-
-Skips current iteration.
-
-
-PASS
-----
-
-Does nothing.
-
-
-FOR-ELSE
---------
-
-else runs if the for loop
-finishes without break.
-
-
-NESTED LOOP
------------
-
-Loop inside another loop.
-
-
-WHILE LOOP
-----------
-
-Runs while the condition is True.
-
-
-INFINITE LOOP
--------------
-
-Happens when the while condition
-never becomes False.
-
-
-============================================================
-MOST IMPORTANT REMEMBER
-============================================================
-
-break    = STOP
-continue = SKIP
-pass     = DO NOTHING
-
-for      = iterate/repeat over a sequence or range
-while    = repeat while condition is True
-
-for-else:
-    break nahi hua -> else runs
-
-nested loop:
-    loop ke andar loop
-============================================================
-"""
+# feat: add python loops basics-to-medium practice script

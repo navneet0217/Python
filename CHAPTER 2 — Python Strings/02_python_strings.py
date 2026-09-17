@@ -1,122 +1,146 @@
 """
-================================================================================
-PYTHON STRINGS - COMPLETE REFERENCE GUIDE
-================================================================================
-Based on the String Roadmap:
-1. Types          : type(), str()
-2. Math           : len(), count()
-3. Transformations: replace(), +, f{}, split(), *, indexing [0], slicing [1:3]
-4. Cleaning       : lstrip(), rstrip(), strip(), lower(), upper()
-5. Search         : startswith(), endswith(), find(), 'in'
-6. Validation     : isalpha(), isnumeric(), isalnum(), isspace()
-================================================================================
+Python Strings — Basic se Medium tak
+=====================================
+Cover kar rahe hain: string types, math (len/count), transformations,
+cleaning, search, aur validation.
+Har section ke end mein practice questions hain — pehle khud try karo,
+phir SOLUTIONS section dekho.
 """
 
-# ================================================================================
-# 1. TYPES: type(), str()
-# ================================================================================
-myStr = "Navneet"
-print("type(myStr):", type(myStr))  # <class 'str'>
+# ============================================================
+# 1. STRING TYPE KAISE PEHCHANEIN?
+# ============================================================
+my_str = "Navneet"
+print("1. type(my_str):", type(my_str))
 
-# Converting int to string:
 num = 123
-myStr2 = str(num)
-print("str(123):", myStr2, type(myStr2))  # '123' <class 'str'>
+num_as_str = str(num)
+print("   str(123):", num_as_str, "| type:", type(num_as_str).__name__)
 
-# Note on int() conversion:
-numStr = "100"
-myInt = int(numStr)  # Works ONLY if string contains numbers!
-print("int('100'):", myInt, type(myInt))
+# Note: int() sirf tabhi kaam karega jab string mein sirf numbers hon
+num_str = "100"
+print("   int('100'):", int(num_str))
 
 
-# ================================================================================
-# 2. MATH: len(), count()
-# ================================================================================
+# ============================================================
+# 2. STRING KA MATH (len, count)
+# ============================================================
 sample_text = "banana"
-print("len('banana'):", len(sample_text))    # 6
-print("count('a'):", sample_text.count("a"))  # 3
+print("\n2. len('banana'):", len(sample_text))
+print("   'banana'.count('a'):", sample_text.count("a"))
 
 
-# ================================================================================
-# 3. TRANSFORMATIONS: replace(), +, f{}, split(), *, indexing [0], slicing [1:3]
-# ================================================================================
+# ============================================================
+# 3. STRING TRANSFORM KAISE KAREIN?
+# ============================================================
+print("\n3. Transformations:")
+print("   replace():", "Navneet".replace("Navneet", "Kumar"))
+print("   concat ('H' + 'i'):", "H" + "i")
+print("   repeat ('ha' * 3):", "ha" * 3)
 
-# A. replace()
-print("replace():", "Navneet".replace("Navneet", "Kumar"))
+name_val, age_val = "Navneet", 27
+print(f"   f-string: Hello {name_val}, {age_val} saal ke ho")
 
-# B. Concatenation (+)
-greeting = "H" + "i"
-print("Concatenation ('H' + 'i'):", greeting)  # 'Hi'
-
-# C. String Repetition (*)
-laughter = "ha" * 3
-print("Repetition ('ha' * 3):", laughter)  # 'hahaha'
-
-# D. Formatted String Literals (f-strings)
-name_val = "Navneet"
-age_val = 27
-print(f"f-string: Hello {name_val}, you are {age_val} years old.")
-
-# E. split()
 csv_data = "apple,banana,cherry"
-print("split(','):", csv_data.split(","))  # ['apple', 'banana', 'cherry']
+print("   split(','):", csv_data.split(","))
 
-# F. Extraction (Indexing & Slicing)
 cat = "cat"
-print("Indexing ('cat'[0]):", cat[0])      # 'c'
-print("Slicing ('cat'[1:3]):", cat[1:3])   # 'at'
+print("   indexing 'cat'[0]:", cat[0])
+print("   slicing 'cat'[1:3]:", cat[1:3])
 
 
-# ================================================================================
-# 4. CLEANING: Clean Whitespaces (lstrip, rstrip, strip) & Clean Cases (lower, upper)
-# ================================================================================
+# ============================================================
+# 4. STRING CLEAN KAISE KAREIN?
+# ============================================================
+raw_input_text = "   navneet@example.com \n "
+print("\n4. Cleaning:")
+print("   strip():", repr(raw_input_text.strip()))
+print("   lstrip():", repr("   hello".lstrip()))
+print("   rstrip():", repr("hello\n".rstrip()))
 
-# Clean Whitespaces:
-raw_user_input = "   navneet@example.com \n "
-print("strip():", repr(raw_user_input.strip()))    # 'navneet@example.com'
-print("lstrip():", repr("   hello".lstrip()))       # 'hello'
-print("rstrip():", repr("hello\n".rstrip()))        # 'hello'
-
-# Clean Cases:
 text_case = "Hello Python World"
-print("lower():", text_case.lower())  # 'hello python world'
-print("upper():", text_case.upper())  # 'HELLO PYTHON WORLD'
+print("   lower():", text_case.lower())
+print("   upper():", text_case.upper())
 
 
-# ================================================================================
-# 5. SEARCH: startswith(), endswith(), find(), 'in'
-# ================================================================================
+# ============================================================
+# 5. STRING MEIN SEARCH KAISE KAREIN?
+# ============================================================
 search_text = "Python Programming Language"
-
-print("'Python' in search_text:", "Python" in search_text)           # True
-print("startswith('Python'):", search_text.startswith("Python"))     # True
-print("endswith('Language'):", search_text.endswith("Language"))     # True
-print("find('Programming'):", search_text.find("Programming"))       # Index: 7
-print("find('Java') [missing]:", search_text.find("Java"))           # -1
-
-
-# ================================================================================
-# 6. VALIDATION: isalpha(), isnumeric(), isalnum(), isspace()
-# ================================================================================
-print("'Navneet'.isalpha():", "Navneet".isalpha())          # True
-print("'12345'.isnumeric():", "12345".isnumeric())          # True
-print("'User123'.isalnum():", "User123".isalnum())          # True
-print("'   '.isspace():", "   ".isspace())                  # True
+print("\n5. Search:")
+print("   'Python' in search_text:", "Python" in search_text)
+print("   startswith('Python'):", search_text.startswith("Python"))
+print("   endswith('Language'):", search_text.endswith("Language"))
+print("   find('Programming'):", search_text.find("Programming"))
+print("   find('Java') [not found]:", search_text.find("Java"))  # -1 aata hai
 
 
-# ================================================================================
-# PRACTICAL EXERCISE SOLUTION (Dynamic String Cleaning)
-# Given: "968-Maria, ( D@t@ Engineer );; 27 years  "
-# Target: "name : maria | role: data engineer | age: 27"
-# ================================================================================
-givenString = "968-Maria, ( D@t@ Engineer );; 27 years  "
+# ============================================================
+# 6. STRING VALIDATE KAISE KAREIN?
+# ============================================================
+print("\n6. Validation:")
+print("   'Navneet'.isalpha():", "Navneet".isalpha())
+print("   '12345'.isnumeric():", "12345".isnumeric())
+print("   'User123'.isalnum():", "User123".isalnum())
+print("   '   '.isspace():", "   ".isspace())
 
-part1, rest = givenString.split(",", 1)
-role_part, age_part = rest.split(";;")
 
-clean_name = part1.split("-")[1].strip().lower()
-clean_role = " ".join(role_part.replace("@", "a").replace("(", "").replace(")", "").split()).lower()
-clean_age = "".join(c for c in age_part if c.isdigit())
+# ============================================================
+# PRACTICE — Basic to Medium
+# ============================================================
+"""
+Q1 (Basic): Ek string "Hello World" ka length nikalo aur usse pura
+            uppercase mein print karo.
 
-print("\n--- Practical Exercise Output ---")
-print(f"name : {clean_name} | role: {clean_role} | age: {clean_age}")
+Q2 (Basic): "python,java,c++,javascript" ko comma se split karo aur
+            second language print karo.
+
+Q3 (Medium): "  Navneet@2026  " string ko clean karo — spaces hatao,
+             lowercase karo, aur '@' ko 'at' se replace karo.
+
+Q4 (Medium): Diya gaya string: "968-Maria, ( D@t@ Engineer );; 27 years  "
+             Isse aise nikalo: "name: maria | role: data engineer | age: 27"
+             (Hint: split(",", 1), split(";;"), replace(), isdigit())
+"""
+
+
+# ============================================================
+# SOLUTIONS
+# ============================================================
+
+def practice_solutions():
+    print("\n--- PRACTICE SOLUTIONS ---")
+
+    # Q1
+    text_q1 = "Hello World"
+    print(f"Q1 -> length: {len(text_q1)} | upper: {text_q1.upper()}")
+
+    # Q2
+    langs = "python,java,c++,javascript".split(",")
+    print("Q2 -> second language:", langs[1])
+
+    # Q3
+    q3_text = "  Navneet@2026  "
+    cleaned = q3_text.strip().lower().replace("@", "at")
+    print("Q3 -> cleaned:", cleaned)
+
+    # Q4
+    given_string = "968-Maria, ( D@t@ Engineer );; 27 years  "
+    part1, rest = given_string.split(",", 1)
+    role_part, age_part = rest.split(";;")
+
+    clean_name = part1.split("-")[1].strip().lower()
+    clean_role = " ".join(role_part.replace("@", "a").replace("(", "").replace(")", "").split()).lower()
+    clean_age = "".join(c for c in age_part if c.isdigit())
+
+    print(f"Q4 -> name: {clean_name} | role: {clean_role} | age: {clean_age}")
+
+
+if __name__ == "__main__":
+    practice_solutions()
+
+
+# ============================================================
+# Suggested commit message
+# ============================================================
+# feat: add python strings basics-to-medium practice script

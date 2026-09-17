@@ -1,277 +1,159 @@
 """
-================================================================================
- CHAPTER 1: PYTHON FUNDAMENTALS -- BEGINNER GUIDE & RECAP
-================================================================================
- Welcome! This script is your interactive tutorial & quick recap notes.
- You can read through the simple comments or run this file to see everything!
-
- Topics Covered in this File:
-  1. What Is Python & How It Works
-  2. Installing & Running Python
-  3. Comments & print() Function
-  4. Variables & Naming Rules
-  5. User input() & Converting Data Types (Type Casting)
-  6. Python Data Types & Checking Types
-  7. Practice Questions & Step-by-Step Solutions
-================================================================================
+Python Fundamentals — Basic se Medium tak
+==========================================
+Cover kar rahe hain: Python kya hai, print(), variables, input() +
+type casting, aur data types check karna.
+Har section ke end mein practice questions hain — pehle khud try karo,
+phir SOLUTIONS section dekho.
 """
 
 import sys
 
-# ------------------------------------------------------------------------------
-# TOPIC 1: WHAT IS PYTHON & HOW IT WORKS
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 1] WHAT IS PYTHON & HOW IT WORKS")
-print("=" * 60)
+# ============================================================
+# 1. PYTHON KYA HAI & KAISE CHALTA HAI?
+# ============================================================
+# Python ek high-level, interpreted language hai — line by line chalti hai.
+# Tumhe types (int, str, etc.) manually specify karne ki zaroorat nahi
+# (dynamically typed).
 
-# What is Python?
-# ---------------
-# * Created by Guido van Rossum in 1991.
-# * High-level: Easy for humans to read and write (looks like plain English).
-# * Interpreted: Runs line-by-line using the Python Virtual Machine (PVM).
-# * Dynamically Typed: You don't need to specify data types like int or String manually.
-
-# How Python Code Runs (Under the Hood):
-# 1. Your Code (.py file) -> Python Compiler
-# 2. Bytecode (.pyc file) -> Python Virtual Machine (PVM)
-# 3. Machine Code (0s & 1s) -> Your Computer CPU executes it!
-
-print(f"Current Python Version: {sys.version.split()[0]}")
-print("Code Execution Flow: Source Code (.py) -> Bytecode -> PVM -> Output!")
+print("1. Python version:", sys.version.split()[0])
+print("   Flow: Source Code (.py) -> Bytecode -> Python Virtual Machine -> Output")
 
 
-# ------------------------------------------------------------------------------
-# TOPIC 2: INSTALLING & RUNNING PYTHON
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 2] INSTALLING & RUNNING PYTHON")
-print("=" * 60)
+# ============================================================
+# 2. print() KAISE USE KAREIN?
+# ============================================================
+print("\n2. print() ke tarike:")
 
-# How to check your Python version in command line:
-#   python --version   (or python3 --version)
-#
-# How to run any python file from terminal:
-#   python filename.py
-#
-# How to open Interactive Python Shell (REPL):
-#   Just type 'python' in terminal and hit Enter!
+# Simple print
+print("   Hello, Python!")
 
-print("Quick Tip: You can test small code bits directly in terminal by typing 'python'!")
+# sep -> beech mein kya aayega
+print("   ", "Python", "is", "fun", sep=" - ")
 
+# end -> line ke end mein kya aayega (default \n)
+print("   Loading", end="... ")
+print("Done!")
 
-# ------------------------------------------------------------------------------
-# TOPIC 3: COMMENTS & THE print() FUNCTION
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 3] COMMENTS & print() FUNCTION")
-print("=" * 60)
-
-# Single-Line Comment: Starts with a hash (#). Python ignores it.
-
-"""
-Multi-Line Comment (or Docstring):
-Uses triple quotes (\"\"\" or ''').
-Great for writing long notes or multi-line explanations!
-"""
-
-# 1. Basic Printing
-print("Hello, Welcome to Python!")
-
-# 2. Custom Separator (sep="...") - Controls what goes between items
-print("Python", "is", "fun", sep=" - ")
-
-# 3. Custom End Character (end="...") - Default end is a new line (\n)
-print("Loading data", end="... ")
-print("Complete! [OK]")
-
-# 4. Special Characters (Escape Sequences)
-# \n = New Line
-# \t = Tab Space
-print("Line 1\nLine 2\t(Tabbed space)")
-
-# 5. Formatted Strings (f-strings) - The modern way to put variables into text!
+# f-string -> variable ko seedha string mein daalna
 language = "Python"
 chapter = 1
-print(f"Learning {language} -- Chapter {chapter} is in progress!\n")
+print(f"   Learning {language}, Chapter {chapter}")
 
 
-# ------------------------------------------------------------------------------
-# TOPIC 4: VARIABLES & MEMORY BASICS
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 4] VARIABLES & MEMORY BASICS")
-print("=" * 60)
+# ============================================================
+# 3. VARIABLES KAISE BANAYEIN?
+# ============================================================
+# Variable ek labeled box hai jisme data store hota hai.
+# Rules: letter/underscore se start, number se nahi; case-sensitive;
+# reserved keyword (print, class, etc.) use nahi kar sakte.
 
-# What is a Variable?
-# A variable is like a labeled box that stores data in your computer's memory.
+student_name = "Alex"
+student_age = 20
+gpa = 3.8
+is_enrolled = True
 
-# Variable Naming Rules:
-# [YES] Must start with a letter (a-z, A-Z) or an underscore (_)
-# [YES] Can contain numbers, but CANNOT start with a number (e.g., age1 is valid, 1age is INVALID)
-# [YES] Case-sensitive (age, Age, and AGE are 3 different variables!)
-# [NO]  Cannot use Python reserved keywords (like print, input, class, def, return)
+print(f"\n3. Student: {student_name}, Age: {student_age}, GPA: {gpa}, Enrolled: {is_enrolled}")
 
-# Example 1: Creating variables
-student_name = "Alex"     # String (Text)
-student_age = 20          # Integer (Whole number)
-gpa = 3.8                 # Float (Decimal number)
-is_enrolled = True        # Boolean (True or False)
-
-print(f"Student: {student_name}, Age: {student_age}, GPA: {gpa}, Enrolled: {is_enrolled}")
-
-# Example 2: Multiple variables in one line
+# Ek line mein multiple variables
 x, y, z = 5, 10, 15
-print(f"x = {x}, y = {y}, z = {z}")
+print("   x, y, z:", x, y, z)
 
-# Example 3: Easy Variable Swapping (Python magic!)
-a = 100
-b = 200
-print(f"Before Swap: a = {a}, b = {b}")
-
-# Swap values in 1 simple line!
+# Swap — Python ka magic, temp variable ki zaroorat nahi
+a, b = 100, 200
 a, b = b, a
-print(f"After Swap:  a = {a}, b = {b}")
+print("   Swapped a, b:", a, b)
 
 
-# ------------------------------------------------------------------------------
-# TOPIC 5: USER input() & TYPE CASTING
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 5] USER input() & TYPE CASTING")
-print("=" * 60)
+# ============================================================
+# 4. input() aur TYPE CASTING KAISE KAAM KARTA HAI?
+# ============================================================
+# input() hamesha STRING return karta hai — math karne ke liye
+# int()/float() se convert (cast) karna padega.
 
-# IMPORTANT: The input() function ALWAYS returns data as a STRING ("str")!
-# If you want to do math with user input, you must convert (cast) it to int or float.
-
-# Example of converting (casting) data types:
-# int("10")    -> Converts string "10" to number 10
-# float("5.5") -> Converts string "5.5" to decimal number 5.5
-# str(100)     -> Converts number 100 to text "100"
-
-user_birth_year = "2004"  # Simulating input from user
-year_number = int(user_birth_year)  # Converting string to integer
-
+user_birth_year = "2004"  # yaha input() simulate kar rahe hain
+year_number = int(user_birth_year)
 calculated_age = 2026 - year_number
 
-print(f"Birth Year (as string): '{user_birth_year}' (Type: {type(user_birth_year).__name__})")
-print(f"Birth Year (as int):    {year_number} (Type: {type(year_number).__name__})")
-print(f"Calculated Age:         {calculated_age} years old")
+print(f"\n4. Birth year (string): '{user_birth_year}'")
+print(f"   Birth year (int):    {year_number}")
+print(f"   Calculated age:      {calculated_age}")
 
 
-# ------------------------------------------------------------------------------
-# TOPIC 6: PYTHON DATA TYPES OVERVIEW
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 6] PYTHON DATA TYPES OVERVIEW")
-print("=" * 60)
-
-# Built-in Data Types in Python:
-# 1. int      -> Whole numbers (e.g., 42, -7)
-# 2. float    -> Decimal numbers (e.g., 3.14, -0.01)
-# 3. complex  -> Complex numbers with imaginary part (e.g., 2 + 3j)
-# 4. str      -> Text enclosed in quotes (e.g., "Hello World")
-# 5. bool     -> True or False
-# 6. NoneType -> Represents 'nothing' or absence of value (None)
-
+# ============================================================
+# 5. DATA TYPES KAISE CHECK KAREIN?
+# ============================================================
 my_int = 50
 my_float = 19.99
-my_string = "Python Fundamentals"
+my_string = "Fundamentals"
 my_bool = True
 my_none = None
 
-print("Checking data types using type():")
-print(f"  Value: {my_int:<20} -> Type: {type(my_int).__name__}")
-print(f"  Value: {my_float:<20} -> Type: {type(my_float).__name__}")
-print(f"  Value: '{my_string}' -> Type: {type(my_string).__name__}")
-print(f"  Value: {my_bool:<20} -> Type: {type(my_bool).__name__}")
-print(f"  Value: {str(my_none):<20} -> Type: {type(my_none).__name__}")
+print("\n5. type() se check:")
+for val in (my_int, my_float, my_string, my_bool, my_none):
+    print(f"   {str(val):<15} -> {type(val).__name__}")
 
-# Checking types using isinstance() -- Returns True or False
-print(f"\nIs my_int an integer? {isinstance(my_int, int)}")
-print(f"Is my_float a string? {isinstance(my_float, str)}")
+# isinstance() -> True/False mein batata hai
+print("   isinstance(my_int, int):", isinstance(my_int, int))
+print("   isinstance(my_float, str):", isinstance(my_float, str))
 
 
-# ------------------------------------------------------------------------------
-# TOPIC 7: PRACTICE QUESTIONS & STEP-BY-STEP SOLUTIONS
-# ------------------------------------------------------------------------------
-print("\n" + "=" * 60)
-print("[TOPIC 7] PRACTICE QUESTIONS & SOLUTIONS")
-print("=" * 60)
+# ============================================================
+# PRACTICE — Basic to Medium
+# ============================================================
+"""
+Q1 (Basic): num1_str = "15.0", num2_str = "4.0" ko float mein convert karo
+            aur unka sum, difference, product, quotient print karo.
 
-# ---------------------------------------------------------
-# QUESTION 1 (Basic): Simple Calculator
-# Task: Take two numbers (e.g., 15.0 and 4.0), convert them to float, 
-# and print their Sum, Difference, Product, and Quotient.
-# ---------------------------------------------------------
-print("\n--- [Question 1] Simple Calculator ---")
-num1_str = "15.0"
-num2_str = "4.0"
+Q2 (Basic-Medium): raw_price = "$49.99", quantity = 3. '$' hatao, float mein
+                    convert karo, total nikalo aur 2 decimal places tak
+                    print karo.
 
-n1 = float(num1_str)
-n2 = float(num2_str)
+Q3 (Medium): x, y, z = 10, 20, 30 ko is tarah rotate karo ki x ko y ki
+             value mile, y ko z ki, aur z ko x ki (ek line mein).
 
-print(f"First Number:  {n1}")
-print(f"Second Number: {n2}")
-print(f"Sum (+):        {n1 + n2}")
-print(f"Difference (-): {n1 - n2}")
-print(f"Product (*):    {n1 * n2}")
-print(f"Quotient (/):   {n1 / n2}")
+Q4 (Medium): Yeh broken code fix karo:
+                 1_score = "95"
+                 print("Total: " + 1_score + 5)
+             (Hint: variable naming rule + type mismatch dono issues hain)
+"""
 
 
-# ---------------------------------------------------------
-# QUESTION 2 (Basic-Medium): String Price Parser
-# Task: You have price = "$49.99". Extract the number 49.99,
-# multiply by quantity = 3, and display formatted total.
-# ---------------------------------------------------------
-print("\n--- [Question 2] Price Parser ---")
-raw_price = "$49.99"
-quantity = 3
+# ============================================================
+# SOLUTIONS
+# ============================================================
 
-# Step 1: Remove dollar sign '$'
-clean_price_str = raw_price.replace("$", "")
+def practice_solutions():
+    print("\n--- PRACTICE SOLUTIONS ---")
 
-# Step 2: Convert to float number
-price_number = float(clean_price_str)
+    # Q1
+    n1 = float("15.0")
+    n2 = float("4.0")
+    print(f"Q1 -> sum: {n1 + n2} | diff: {n1 - n2} | product: {n1 * n2} | quotient: {n1 / n2}")
 
-# Step 3: Calculate total
-total_cost = price_number * quantity
+    # Q2
+    raw_price = "$49.99"
+    quantity = 3
+    price_number = float(raw_price.replace("$", ""))
+    total_cost = price_number * quantity
+    print(f"Q2 -> total: ${total_cost:.2f}")
 
-print(f"Original Price Tag: {raw_price}")
-print(f"Quantity Purchased: {quantity}")
-print(f"Total Amount Due:   ${total_cost:.2f}")
+    # Q3
+    x, y, z = 10, 20, 30
+    x, y, z = y, z, x
+    print(f"Q3 -> x: {x}, y: {y}, z: {z}")
 
-
-# ---------------------------------------------------------
-# QUESTION 3 (Medium): Rotate 3 Variables
-# Task: Given x=10, y=20, z=30, swap them so that:
-# x gets y's value, y gets z's value, and z gets x's value.
-# ---------------------------------------------------------
-print("\n--- [Question 3] 3-Variable Rotation ---")
-x, y, z = 10, 20, 30
-print(f"Original Values: x = {x}, y = {y}, z = {z}")
-
-# Pythonic Rotation Swap:
-x, y, z = y, z, x
-print(f"Rotated Values:  x = {x}, y = {y}, z = {z}")
+    # Q4
+    score_1 = "95"  # variable ka naam number se start nahi ho sakta
+    final_score = int(score_1) + 5  # string ko int mein convert karna zaroori tha
+    print(f"Q4 -> Total: {final_score}")
 
 
-# ---------------------------------------------------------
-# QUESTION 4 (Medium): Fix the Broken Code
-# Broken Code snippet:
-#   1_score = "95"
-#   print("Total score is: " + 1_score + 5)
-# ---------------------------------------------------------
-print("\n--- [Question 4] Bug Fix Challenge ---")
-print("What was broken in original snippet?")
-print("  [ERROR] 1_score starts with a number 1 (Invalid variable name)")
-print("  [ERROR] '1_score' (str) cannot be added (+) directly to integer 5 (TypeError)")
+if __name__ == "__main__":
+    practice_solutions()
 
-# Fixed Code:
-score_1 = "95"
-final_score = int(score_1) + 5
-print(f"[FIXED] Output: Total score is: {final_score}")
 
-print("\n" + "=" * 60)
-print("SUCCESS: You completed Chapter 1 Fundamentals!")
-print("=" * 60 + "\n")
+# ============================================================
+# Suggested commit message
+# ============================================================
+# feat: add python fundamentals basics-to-medium practice script

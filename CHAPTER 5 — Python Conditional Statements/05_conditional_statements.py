@@ -1,26 +1,17 @@
 """
-================================================================================
-CHAPTER 5: PYTHON CONDITIONAL STATEMENTS - COMPLETE REFERENCE GUIDE
-================================================================================
-Sequential Concept Breakdown:
-1. Basic Control Flow   : if, elif, else
-2. Nested if Statements : Hierarchical decision trees
-3. Guard Clauses        : Flat early-exit validation (if-elif-else)
-4. Ternary Operator     : One-line if-else expressions
-5. Match-Case           : Structural pattern matching (Python 3.10+)
-6. Regex Validation     : Pattern matching using import re
-7. Practical Project 1  : Email Validation Challenge
-8. Practical Project 2  : Password Quality & Correctness Validation Challenge
-================================================================================
+Python Conditional Statements — Basic se Medium tak
+=====================================================
+Cover kar rahe hain: if-elif-else, nested if, guard clauses,
+ternary operator, match-case, aur regex validation.
+Har section ke end mein practice questions hain — pehle khud try karo,
+phir SOLUTIONS section dekho.
 """
 
 import re
 
-# ================================================================================
-# 1. BASIC CONTROL FLOW: if, elif, else
-# ================================================================================
-print("=== 1. Basic Control Flow (if, elif, else) ===")
-
+# ============================================================
+# 1. if-elif-else KAISE KAAM KARTA HAI?
+# ============================================================
 score = 85
 
 if score >= 90:
@@ -32,153 +23,154 @@ elif score >= 70:
 else:
     grade = "F"
 
-print(f"Score: {score} -> Grade: {grade}")
+print(f"1. Score {score} -> Grade {grade}")
 
 
-# ================================================================================
-# 2. NESTED IF STATEMENTS (Hierarchical Checks)
-# ================================================================================
-print("\n=== 2. Nested if Statements ===")
-
-age = 20
-has_ticket = True
+# ============================================================
+# 2. NESTED if KAISE LIKHEIN?
+# ============================================================
+age, has_ticket = 20, True
+print("\n2. Nested if:")
 
 if age >= 18:
     if has_ticket:
-        print("Access Granted: Welcome to the event!")
+        print("   Access Granted: Welcome!")
     else:
-        print("Access Denied: Ticket required.")
+        print("   Access Denied: Ticket chahiye.")
 else:
-    print("Access Denied: Underage.")
+    print("   Access Denied: Underage.")
 
 
-# ================================================================================
-# 3. GUARD CLAUSES / FLAT IF-ELIF-ELSE (Early Exits)
-# ================================================================================
-print("\n=== 3. Guard Clauses (Flat if-elif-else) ===")
-
-user_role = "editor"
-account_active = True
+# ============================================================
+# 3. GUARD CLAUSES (FLAT if-elif-else) KYA HOTE HAIN?
+# ============================================================
+# Nested if ki jagah, sab conditions ko ek hi level pe check karna —
+# padhne mein aasan hota hai.
+user_role, account_active = "editor", True
+print("\n3. Guard clauses:")
 
 if not account_active:
-    print("Denied: Account suspended.")
+    print("   Denied: Account suspended.")
 elif user_role == "admin":
-    print("Granted: Full Admin Access.")
+    print("   Granted: Full Admin Access.")
 elif user_role == "editor":
-    print("Granted: Editor Content Access.")
+    print("   Granted: Editor Access.")
 else:
-    print("Granted: Standard Viewer Access.")
+    print("   Granted: Standard Viewer Access.")
 
 
-# ================================================================================
+# ============================================================
 # 4. TERNARY OPERATOR (One-line if-else)
+# ============================================================
 # Syntax: value_if_true if condition else value_if_false
-# ================================================================================
-print("\n=== 4. Ternary Operator ===")
-
 age_check = 20
 status = "Adult" if age_check >= 18 else "Minor"
-print(f"Age {age_check}: {status}")
+print(f"\n4. Ternary -> Age {age_check}: {status}")
 
 
-# ================================================================================
-# 5. MATCH-CASE STATEMENT (Python 3.10+ Pattern Matching)
-# ================================================================================
-print("\n=== 5. Match-Case Statement ===")
-
+# ============================================================
+# 5. MATCH-CASE KAISE USE KAREIN? (Python 3.10+)
+# ============================================================
 http_status = 200
+print("\n5. Match-case:")
 
 match http_status:
     case 200:
-        response = "200 OK: Success"
+        response = "200 OK"
     case 400:
         response = "400 Bad Request"
     case 404:
         response = "404 Not Found"
-    case 500:
-        response = "500 Internal Server Error"
     case _:
-        response = "Unknown Status Code"
+        response = "Unknown status"
 
-print("HTTP Response:", response)
+print("   HTTP response:", response)
 
 
-# ================================================================================
-# 6. REGEX VALIDATION (import re)
-# ================================================================================
-print("\n=== 6. Regex Validation (re.match) ===")
-
+# ============================================================
+# 6. REGEX SE VALIDATION KAISE KAREIN?
+# ============================================================
 zip_code = "90210"
 is_valid_zip = bool(re.match(r"^\d{5}$", zip_code))
-print(f"Zip '{zip_code}' Valid?:", is_valid_zip)
+print(f"\n6. Zip '{zip_code}' valid? {is_valid_zip}")
 
 
-# ================================================================================
-# 7. PRACTICAL CHALLENGE 1: EMAIL VALIDATION
-# Rules:
-# 1. Must not be empty
-# 2. Must contain both '.' and '@'
-# 3. Must contain exactly one '@'
-# 4. Must contain exactly one '.com', '.org', or '.net' and end with it
-# 5. Must not be longer than 254 chars
-# 6. Must start and end with alphanumeric character
-# ================================================================================
-print("\n=== 7. Practical Challenge 1: Email Validation ===")
+# ============================================================
+# PRACTICE — Basic to Medium
+# ============================================================
+"""
+Q1 (Basic): marks = 45. Grade decide karo: >=90 "A", >=75 "B", >=50 "C",
+            baaki "Fail".
 
-email = "navneetanand17360@gmail.com"
+Q2 (Basic-Medium): temperature = 40. Ternary operator use karke print
+                    karo "Hot" agar >= 35, nahi to "Normal".
 
-ext_count = email.count('.com') + email.count('.org') + email.count('.net')
+Q3 (Medium): Email Validation — email = "navneetanand@gmail.com".
+             Rules: khali nahi ho, exactly ek '@' ho, aur '.com'/'.org'/
+             '.net' pe end ho. "valid" ya reason batao invalid ka.
 
-if not email:
-    email_result = "invalid: Email cannot be empty"
-elif '.' not in email or '@' not in email:
-    email_result = "invalid: Missing '.' or '@'"
-elif email.count('@') != 1:
-    email_result = "invalid: Must contain exactly one '@'"
-elif ext_count != 1 or not email.endswith(('.com', '.org', '.net')):
-    email_result = "invalid: Must contain exactly one valid extension"
-elif len(email) > 254:
-    email_result = "invalid: Exceeds 254 characters"
-elif not (email[0].isalnum() and email[-1].isalnum()):
-    email_result = "invalid: First and last chars must be alphanumeric"
-else:
-    email_result = "valid"
-
-print(f"Email '{email}' -> {email_result}")
+Q4 (Medium): Password Validation — password = "Abcd@1234".
+             Rules: min 8 chars, kam se kam 1 uppercase, kam se kam
+             1 lowercase, aur koi space na ho.
+"""
 
 
-# ================================================================================
-# 8. PRACTICAL CHALLENGE 2: PASSWORD QUALITY & CORRECTNESS VALIDATION
-# Rules:
-# 1. Must not be empty
-# 2. Must be at least 8 characters
-# 3. Must include at least 1 uppercase letter
-# 4. Must include at least 1 lowercase letter
-# 5. Must not be same as the email
-# 6. Must not contain any spaces
-# 7. Must start and end with a letter or digit
-# ================================================================================
-print("\n=== 8. Practical Challenge 2: Password Validation ===")
+# ============================================================
+# SOLUTIONS
+# ============================================================
 
-sample_password = "Abd@17360"
-sample_email = "navneetanand17360@gmail.com"
+def practice_solutions():
+    print("\n--- PRACTICE SOLUTIONS ---")
 
-if not sample_password:
-    pwd_result = "invalid: Password cannot be empty"
-elif len(sample_password) < 8:
-    pwd_result = "invalid: Password must be at least 8 characters"
-elif sample_password.lower() == sample_password:
-    pwd_result = "invalid: Must contain at least 1 uppercase letter"
-elif sample_password.upper() == sample_password:
-    pwd_result = "invalid: Must contain at least 1 lowercase letter"
-elif sample_password == sample_email:
-    pwd_result = "invalid: Password cannot be the same as email"
-elif " " in sample_password:
-    pwd_result = "invalid: Password must not contain spaces"
-elif not (sample_password[0].isalnum() and sample_password[-1].isalnum()):
-    pwd_result = "invalid: Must start and end with a letter or digit"
-else:
-    pwd_result = "valid"
+    # Q1
+    marks = 45
+    if marks >= 90:
+        result_grade = "A"
+    elif marks >= 75:
+        result_grade = "B"
+    elif marks >= 50:
+        result_grade = "C"
+    else:
+        result_grade = "Fail"
+    print("Q1 ->", result_grade)
 
-print(f"Password '{sample_password}' -> {pwd_result}")
+    # Q2
+    temperature = 40
+    weather = "Hot" if temperature >= 35 else "Normal"
+    print("Q2 ->", weather)
 
+    # Q3
+    email = "navneetanand@gmail.com"
+    if not email:
+        email_result = "invalid: Email khali nahi ho sakta"
+    elif email.count("@") != 1:
+        email_result = "invalid: Exactly ek '@' hona chahiye"
+    elif not email.endswith((".com", ".org", ".net")):
+        email_result = "invalid: '.com' / '.org' / '.net' pe end hona chahiye"
+    else:
+        email_result = "valid"
+    print("Q3 ->", email_result)
+
+    # Q4
+    password = "Abcd@1234"
+    if len(password) < 8:
+        pwd_result = "invalid: kam se kam 8 characters"
+    elif password.lower() == password:
+        pwd_result = "invalid: kam se kam 1 uppercase chahiye"
+    elif password.upper() == password:
+        pwd_result = "invalid: kam se kam 1 lowercase chahiye"
+    elif " " in password:
+        pwd_result = "invalid: space nahi hona chahiye"
+    else:
+        pwd_result = "valid"
+    print("Q4 ->", pwd_result)
+
+
+if __name__ == "__main__":
+    practice_solutions()
+
+
+# ============================================================
+# Suggested commit message
+# ============================================================
+# feat: add python conditional statements basics-to-medium practice script
