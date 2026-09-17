@@ -173,8 +173,3 @@ def practice_solutions():
 if __name__ == "__main__":
     practice_solutions()
 
-
-# ============================================================
-# Suggested commit message
-# ============================================================
-# feat: add list basics-to-medium practice script (create, access, unpack, analyze, change)
