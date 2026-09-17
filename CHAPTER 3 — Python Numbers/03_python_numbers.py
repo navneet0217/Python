@@ -97,6 +97,19 @@ Q3 (Medium): random.randint(1, 100) se ek number generate karo aur check
 Q4 (Medium): Ek right-angled triangle ke do sides diye hain: base=3, height=4.
              math.sqrt() use karke hypotenuse nikalo
              (formula: sqrt(base**2 + height**2)).
+
+Q5 (Basic): n = 7. Check karo ki yeh prime number hai ya nahi (2 se n-1
+            tak divide karke dekho).
+
+Q6 (Basic): celsius = 37. Ise Fahrenheit mein convert karo
+            (formula: F = C * 9/5 + 32).
+
+Q7 (Medium): num = 1234. Iske sab digits ka sum nikalo (1+2+3+4 = 10),
+             string conversion ya modulus dono tarike try kar sakte ho.
+
+Q8 (Medium): negative_num = -7.8. Isme abs(), round(), math.floor(), aur
+             math.ceil() laga kar dekho — negative numbers pe yeh kaise
+             behave karte hain, yeh edge case samjho.
 """
 
 
@@ -123,6 +136,26 @@ def practice_solutions():
     base, height = 3, 4
     hypotenuse = math.sqrt(base ** 2 + height ** 2)
     print(f"Q4 -> hypotenuse: {hypotenuse}")
+
+    # Q5
+    n5 = 7
+    is_prime = n5 > 1 and all(n5 % i != 0 for i in range(2, n5))
+    print(f"Q5 -> is_prime: {is_prime}")
+
+    # Q6
+    celsius = 37
+    fahrenheit = celsius * 9 / 5 + 32
+    print(f"Q6 -> fahrenheit: {fahrenheit}")
+
+    # Q7
+    num = 1234
+    digit_sum = sum(int(d) for d in str(num))
+    print(f"Q7 -> digit sum: {digit_sum}")
+
+    # Q8
+    negative_num = -7.8
+    print(f"Q8 -> abs: {abs(negative_num)} | round: {round(negative_num)} "
+          f"| floor: {math.floor(negative_num)} | ceil: {math.ceil(negative_num)}")
 
 
 if __name__ == "__main__":

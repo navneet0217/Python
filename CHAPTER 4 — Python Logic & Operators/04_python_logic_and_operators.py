@@ -106,6 +106,22 @@ Q3 (Medium): email = "navneet@gmail.com". Check karo ki email khali nahi
 Q4 (Medium): userRole = "moderator", is_banned = True,
              is_verified_email = True. Check karo ki user admin ya
              moderator hai AUR (banned nahi hai YA email verified hai).
+
+Q5 (Basic): num = 45. Check karo ki yeh 1 se 100 ke beech (dono inclusive)
+            hai ya nahi, ek hi condition mein (comparison chaining try
+            karo: 1 <= num <= 100).
+
+Q6 (Basic): empty_list = []. `not empty_list` use karke check karo ki
+            list khali hai ya nahi (falsy check, edge case).
+
+Q7 (Medium): list_x = list([10, 20, 30]), list_y = list([10, 20, 30])
+             (dono alag se banaye gaye hain). Check karo list_x == list_y
+             (values) aur list_x is list_y (memory) — dono ka result
+             print karo aur farak samjho.
+
+Q8 (Medium): fruit_list = ["apple", "banana", "kiwi"]. Check karo ki
+             "banana" list mein hai AUR uski length 5 se zyada hai
+             (membership + logical operator combine karo).
 """
 
 
@@ -132,6 +148,23 @@ def practice_solutions():
     user_role, is_banned, is_verified_email = "moderator", True, True
     result = (user_role in ("admin", "moderator")) and (not is_banned or is_verified_email)
     print("Q4 ->", result)
+
+    # Q5
+    num = 45
+    print("Q5 ->", 1 <= num <= 100)
+
+    # Q6
+    empty_list = []
+    print("Q6 -> list khali hai?", not empty_list)
+
+    # Q7
+    list_x = list([10, 20, 30])
+    list_y = list([10, 20, 30])
+    print("Q7 -> ==:", list_x == list_y, "| is:", list_x is list_y)
+
+    # Q8
+    fruit_list = ["apple", "banana", "kiwi"]
+    print("Q8 ->", "banana" in fruit_list and len("banana") > 5)
 
 
 if __name__ == "__main__":

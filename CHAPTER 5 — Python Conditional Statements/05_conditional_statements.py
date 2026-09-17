@@ -112,6 +112,23 @@ Q3 (Medium): Email Validation — email = "navneetanand@gmail.com".
 Q4 (Medium): Password Validation — password = "Abcd@1234".
              Rules: min 8 chars, kam se kam 1 uppercase, kam se kam
              1 lowercase, aur koi space na ho.
+
+Q5 (Basic): n = 15. FizzBuzz karo — agar 3 aur 5 dono se divide ho to
+            "FizzBuzz", sirf 3 se to "Fizz", sirf 5 se to "Buzz", warna
+            number khud print karo.
+
+Q6 (Basic-Medium): year = 2024. Check karo leap year hai ya nahi.
+                    (Rule: 4 se divisible ho, lekin 100 se divisible ho
+                    to 400 se bhi divisible hona chahiye.)
+
+Q7 (Medium): day_num = 3. match-case use karke 1-7 ko weekday name mein
+             convert karo (1=Monday...7=Sunday), aur invalid number
+             (jaise 9) ke liye "Invalid day" bhi handle karo.
+
+Q8 (Medium): mobile = "9876543210". Regex se validate karo ki yeh ek
+             valid 10-digit Indian mobile number hai — 6, 7, 8, ya 9 se
+             start hona chahiye aur exactly 10 digits hone chahiye.
+             (Hint: r"^[6-9]\\d{9}$")
 """
 
 
@@ -164,6 +181,49 @@ def practice_solutions():
     else:
         pwd_result = "valid"
     print("Q4 ->", pwd_result)
+
+    # Q5
+    n = 15
+    if n % 3 == 0 and n % 5 == 0:
+        fizzbuzz_result = "FizzBuzz"
+    elif n % 3 == 0:
+        fizzbuzz_result = "Fizz"
+    elif n % 5 == 0:
+        fizzbuzz_result = "Buzz"
+    else:
+        fizzbuzz_result = str(n)
+    print("Q5 ->", fizzbuzz_result)
+
+    # Q6
+    year = 2024
+    is_leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+    print("Q6 -> leap year?", is_leap)
+
+    # Q7
+    for day_num in (3, 9):
+        match day_num:
+            case 1:
+                day_name = "Monday"
+            case 2:
+                day_name = "Tuesday"
+            case 3:
+                day_name = "Wednesday"
+            case 4:
+                day_name = "Thursday"
+            case 5:
+                day_name = "Friday"
+            case 6:
+                day_name = "Saturday"
+            case 7:
+                day_name = "Sunday"
+            case _:
+                day_name = "Invalid day"
+        print(f"Q7 -> day {day_num}:", day_name)
+
+    # Q8
+    mobile = "9876543210"
+    is_valid_mobile = bool(re.match(r"^[6-9]\d{9}$", mobile))
+    print("Q8 -> valid mobile?", is_valid_mobile)
 
 
 if __name__ == "__main__":

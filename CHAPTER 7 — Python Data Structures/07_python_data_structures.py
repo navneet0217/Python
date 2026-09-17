@@ -126,6 +126,17 @@ Q4 (Medium): Ek list ["apple", "banana", "cherry"] mein "banana" ko
 Q5 (Medium): Ek list of numbers do. Ek naya list banao jisme sirf woh
              numbers ho jo average se bade hain (list comprehension use
              karne ki koshish karo).
+
+Q6 (Basic): letters = ['p', 'y', 't', 'h', 'o', 'n']. Ise reverse() built-in
+            use kiye bina reverse karo (slicing [::-1] ya loop use karo).
+
+Q7 (Medium): list1 = [1, 2, 3], list2 = [3, 4, 5]. Dono ko merge karo aur
+             duplicate values hata do (hint: set() use karo, phir wapas
+             list mein convert karo).
+
+Q8 (Medium): nested = [[1, 2], [3, 4], [5, 6]]. Ise flatten karke ek
+             single list bana do: [1, 2, 3, 4, 5, 6] (nested loop ya
+             list comprehension use karo).
 """
 
 
@@ -169,7 +180,26 @@ def practice_solutions():
     above_avg = [n for n in nums_q5 if n > avg]
     print("Q5 -> average:", avg, "| above average:", above_avg)
 
+    # Q6
+    letters = ["p", "y", "t", "h", "o", "n"]
+    print("Q6 -> reversed:", letters[::-1])
+
+    # Q7
+    list1, list2 = [1, 2, 3], [3, 4, 5]
+    merged_unique = list(set(list1 + list2))
+    print("Q7 -> merged unique:", sorted(merged_unique))
+
+    # Q8
+    nested = [[1, 2], [3, 4], [5, 6]]
+    flattened = [item for sub_list in nested for item in sub_list]
+    print("Q8 -> flattened:", flattened)
+
 
 if __name__ == "__main__":
     practice_solutions()
 
+
+# ============================================================
+# Suggested commit message
+# ============================================================
+# feat: add list basics-to-medium practice script (create, access, unpack, analyze, change)

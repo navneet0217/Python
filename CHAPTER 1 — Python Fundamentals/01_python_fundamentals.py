@@ -116,6 +116,20 @@ Q4 (Medium): Yeh broken code fix karo:
                  1_score = "95"
                  print("Total: " + 1_score + 5)
              (Hint: variable naming rule + type mismatch dono issues hain)
+
+Q5 (Basic): a = 5, b = 10 ko bina temp variable use kiye swap karo.
+
+Q6 (Basic): user_age_str = "twenty" ko int() se convert karne ki koshish
+            karo. Agar ValueError aaye to try/except se handle karo aur
+            "Invalid age entered" print karo. (Edge case: bad input)
+
+Q7 (Basic-Medium): name = "Riya", marks = 88.5. f-string use karke
+                    "Riya scored 88.5 marks" print karo, aur marks ka
+                    type() bhi print karo.
+
+Q8 (Medium): radius_str = "0". Ise float mein convert karke circle ka
+             area nikalo (formula: 3.14159 * r * r). Yeh ek edge case
+             hai — radius zero hone par area kya aata hai, check karo.
 """
 
 
@@ -147,6 +161,29 @@ def practice_solutions():
     score_1 = "95"  # variable ka naam number se start nahi ho sakta
     final_score = int(score_1) + 5  # string ko int mein convert karna zaroori tha
     print(f"Q4 -> Total: {final_score}")
+
+    # Q5
+    a, b = 5, 10
+    a, b = b, a
+    print(f"Q5 -> a: {a}, b: {b}")
+
+    # Q6
+    user_age_str = "twenty"
+    try:
+        user_age = int(user_age_str)
+        print("Q6 ->", user_age)
+    except ValueError:
+        print("Q6 -> Invalid age entered")
+
+    # Q7
+    name, marks = "Riya", 88.5
+    print(f"Q7 -> {name} scored {marks} marks | type: {type(marks).__name__}")
+
+    # Q8
+    radius_str = "0"
+    radius = float(radius_str)
+    area = 3.14159 * radius * radius
+    print(f"Q8 -> area: {area}")
 
 
 if __name__ == "__main__":

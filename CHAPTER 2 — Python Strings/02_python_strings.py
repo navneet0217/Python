@@ -101,6 +101,19 @@ Q3 (Medium): "  Navneet@2026  " string ko clean karo — spaces hatao,
 Q4 (Medium): Diya gaya string: "968-Maria, ( D@t@ Engineer );; 27 years  "
              Isse aise nikalo: "name: maria | role: data engineer | age: 27"
              (Hint: split(",", 1), split(";;"), replace(), isdigit())
+
+Q5 (Basic): Check karo ki "Madam" palindrome hai ya nahi (case ignore
+            karke — reverse karke original se compare karo).
+
+Q6 (Basic-Medium): "Programming" string mein kitne vowels (a,e,i,o,u)
+                    hain, count karo (loop ya comprehension use karo).
+
+Q7 (Medium): "Python" string ko slicing [::-1] use karke reverse karo
+             (bina kisi built-in reverse function ke).
+
+Q8 (Medium): empty_string = "". Isme startswith(), endswith(), aur
+             isalpha() lagakar dekho ki empty string pe yeh kya return
+             karte hain (edge case).
 """
 
 
@@ -134,6 +147,26 @@ def practice_solutions():
     clean_age = "".join(c for c in age_part if c.isdigit())
 
     print(f"Q4 -> name: {clean_name} | role: {clean_role} | age: {clean_age}")
+
+    # Q5
+    word = "Madam"
+    is_palindrome = word.lower() == word.lower()[::-1]
+    print("Q5 ->", is_palindrome)
+
+    # Q6
+    text_q6 = "Programming"
+    vowel_count = sum(1 for ch in text_q6.lower() if ch in "aeiou")
+    print("Q6 -> vowels:", vowel_count)
+
+    # Q7
+    word_q7 = "Python"
+    print("Q7 -> reversed:", word_q7[::-1])
+
+    # Q8
+    empty_string = ""
+    print("Q8 -> startswith('a'):", empty_string.startswith("a"))
+    print("      endswith('a'):", empty_string.endswith("a"))
+    print("      isalpha():", empty_string.isalpha(), "(empty string False deta hai)")
 
 
 if __name__ == "__main__":

@@ -131,6 +131,22 @@ Q3 (Medium): Ek list of numbers diya hai. for-else use karke check karo
 
 Q4 (Medium): Nested loop use karke ek multiplication table print karo
              (1 se 3 tak, 1 se 3 tak) format: "1 x 1 = 1".
+
+Q5 (Basic): n = 5. for loop use karke n ka factorial nikalo (5! = 120).
+
+Q6 (Basic-Medium): while loop use karke 1 se 10 tak numbers ka sum
+                    nikalo (bina sum() built-in ke).
+
+Q7 (Medium): rows = 4. Nested loop use karke ek right-angled triangle
+             banao stars se:
+                 *
+                 **
+                 ***
+                 ****
+
+Q8 (Medium): numbers = [4, 2, 7, 2, 9, 4]. Nested loop use karke pehla
+             duplicate value dhoondo (jo pehle bhi list mein aa chuka
+             ho) aur usse print karo.
 """
 
 
@@ -172,6 +188,38 @@ def practice_solutions():
     for i in range(1, 4):
         for j in range(1, 4):
             print(f"   {i} x {j} = {i * j}")
+
+    # Q5
+    n5 = 5
+    factorial = 1
+    for i in range(1, n5 + 1):
+        factorial *= i
+    print(f"Q5 -> {n5}! = {factorial}")
+
+    # Q6
+    total = 0
+    i = 1
+    while i <= 10:
+        total += i
+        i += 1
+    print("Q6 -> sum 1 to 10:", total)
+
+    # Q7
+    print("Q7 ->")
+    rows = 4
+    for i in range(1, rows + 1):
+        print("  " + "*" * i)
+
+    # Q8
+    numbers_q8 = [4, 2, 7, 2, 9, 4]
+    seen = []
+    first_duplicate = None
+    for n in numbers_q8:
+        if n in seen:
+            first_duplicate = n
+            break
+        seen.append(n)
+    print("Q8 -> first duplicate:", first_duplicate)
 
 
 if __name__ == "__main__":
