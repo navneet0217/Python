@@ -2,7 +2,8 @@
 List/Array Concepts — Basic se Medium tak
 ==========================================
 Cover kar rahe hain: Create, Access/Read, Unpack, Explore/Analyze (Min/Max),
-aur Change (Update, Append, Remove).
+Change (Update, Append, Remove), Sort, Copy (reference vs shallow vs deep),
+aur Combine (+, extend, zip).
 Har section ke end mein practice questions bhi hain — pehle khud try karo,
 phir SOLUTIONS section dekho.
 """
@@ -12,6 +13,7 @@ phir SOLUTIONS section dekho.
 # ============================================================
 # List banane ka sabse simple tarika — square brackets.
 
+import copy
 my_list = ["a", "b", "c"]
 print("1. Created list:", my_list)
 
@@ -48,7 +50,8 @@ print("   my_list[0:2] (slice):", my_list[0:2])
 # List ke elements ko seedha variables mein daal sakte ho.
 
 first, middle, last = my_list
-print("\n3. Unpacked ->", "First:", first, "| Middle:", middle, "| Last:", last)
+print("\n3. Unpacked ->", "First:", first,
+      "| Middle:", middle, "| Last:", last)
 
 # Agar list badi ho to * (star) use karo baaki values collect karne ke liye
 nums = [10, 20, 30, 40, 50]
@@ -107,6 +110,101 @@ print("   after insert(1, 'z'):", letters)
 
 
 # ============================================================
+# 6. HOW TO SORT?
+# ============================================================
+# sorted() -> NAYI list return karta hai, original untouched rehta hai.
+# .sort()  -> ORIGINAL list ko khud modify karta hai, kuch return nahi karta.
+
+lst = [4, 3, 1, 2]
+sorted_list = sorted(lst)                 # naya list, ascending
+sorted_desc = sorted(lst, reverse=True)   # naya list, descending
+
+print("\n6. Sort:")
+print("   original lst      :", lst, "(sorted() ke baad bhi same hai)")
+print("   sorted(lst)       :", sorted_list)
+print("   sorted(reverse=T) :", sorted_desc)
+
+# .sort() -> in-place, original list hi badal jati hai
+lst_inplace = [4, 3, 1, 2]
+lst_inplace.sort()
+print("   lst.sort() (in-place):", lst_inplace)
+
+# reversed() -> ek iterator deta hai, list() laga kar list banao
+rev_list = list(reversed(sorted_list))
+print("   list(reversed(sorted_list)):", rev_list)
+
+
+# ============================================================
+# 7. HOW TO COPY? (Reference vs Shallow vs Deep)
+# ============================================================
+
+print("\n7. Copy:")
+
+# '=' sirf REFERENCE copy karta hai — dono naam SAME list ko point karte hain.
+original = [1, 2, 3]
+same_reference = original
+same_reference.append(4)
+print("   after same_reference.append(4):")
+print("   original       :", original, "(yeh bhi badal gaya!)")
+print("   same_reference :", same_reference)
+print("   original is same_reference:", original is same_reference)
+
+# .copy() (ya copy.copy()) -> SHALLOW copy, naya outer list banta hai
+original2 = [1, 2, 3]
+shallow = original2.copy()
+shallow.append(99)
+print("\n   after shallow.append(99):")
+print("   original2 :", original2, "(safe rehta hai, badla nahi)")
+print("   shallow   :", shallow)
+print("   original2 is shallow:", original2 is shallow)
+
+# Shallow copy ka trap — NESTED lists ke andar wahi reference share hoti hai
+nested_original = [[1, 2], [3, 4]]
+nested_shallow = nested_original.copy()
+nested_shallow[0].append(999)  # inner list dono mein shared hai
+print("\n   Shallow copy trap (nested list):")
+print("   nested_original:", nested_original, "(inner list bhi badal gaya!)")
+print("   nested_shallow :", nested_shallow)
+
+# copy.deepcopy() -> pura naya copy, andar ke nested objects bhi alag
+nested_original2 = [[1, 2], [3, 4]]
+nested_deep = copy.deepcopy(nested_original2)
+nested_deep[0].append(999)
+print("\n   copy.deepcopy() (nested list):")
+print("   nested_original2:", nested_original2, "(safe — bilkul nahi badla)")
+print("   nested_deep     :", nested_deep)
+
+
+# ============================================================
+# 8. HOW TO COMBINE?
+# ============================================================
+print("\n8. Combine:")
+
+list_a = [1, 2, 3]
+list_b = [4, 5, 6]
+
+# '+' operator -> naya list return karta hai (original untouched)
+combined_plus = list_a + list_b
+print("   list_a + list_b     :", combined_plus)
+
+# extend() -> IN-PLACE, list_a khud badal jata hai
+list_a_copy = [1, 2, 3]
+list_a_copy.extend(list_b)
+print("   list_a.extend(list_b):", list_a_copy)
+
+# zip() -> dono lists ko pair-pair mein jodta hai, tuples ka iterator deta hai
+names = ["Navneet", "Riya", "Aman"]
+scores = [88, 92, 79]
+zipped = list(zip(names, scores))  # list() lagana zaroori hai dekhne ke liye
+print("   list(zip(names, scores)):", zipped)
+
+# zip alag-alag length ki lists pe shortest ke hisaab se ruk jata hai
+short_list = [1, 2]
+long_list = ["a", "b", "c", "d"]
+print("   zip with unequal lengths:", list(zip(short_list, long_list)))
+
+
+# ============================================================
 # PRACTICE — Basic to Medium
 # ============================================================
 """
@@ -137,6 +235,26 @@ Q7 (Medium): list1 = [1, 2, 3], list2 = [3, 4, 5]. Dono ko merge karo aur
 Q8 (Medium): nested = [[1, 2], [3, 4], [5, 6]]. Ise flatten karke ek
              single list bana do: [1, 2, 3, 4, 5, 6] (nested loop ya
              list comprehension use karo).
+
+Q9 (Basic): prices = [299, 99, 450, 150]. Bina original list ko chhede
+            (sorted() use karke) ascending order mein sorted list banao,
+            phir usi se reversed() use karke descending list bhi banao.
+
+Q10 (Basic-Medium): list_x = [1, 2, 3]. list_y = list_x likh kar
+                     list_y.append(4) karo. Check karo ki list_x pe
+                     bhi effect pada ya nahi, aur `is` operator se
+                     confirm karo ki dono same object hain kya.
+                     (Fix bhi likho: list_y = list_x.copy() use karke.)
+
+Q11 (Medium): matrix = [[1, 2], [3, 4]]. Ek shallow copy (.copy()) aur
+              ek deep copy (copy.deepcopy()) banao. Dono copies ke
+              pehle inner list mein ek value change karo aur dekho
+              original matrix pe kya effect padta hai — farak samjho.
+
+Q12 (Medium): student_names = ["Aman", "Riya", "Kabir"],
+              student_marks = [78, 91, 65]. zip() use karke dono ko
+              jodo aur ek dictionary jaisa output print karo:
+              "Aman: 78", "Riya: 91", "Kabir: 65" (ek loop mein).
 """
 
 
@@ -194,6 +312,45 @@ def practice_solutions():
     flattened = [item for sub_list in nested for item in sub_list]
     print("Q8 -> flattened:", flattened)
 
+    # Q9
+    prices = [299, 99, 450, 150]
+    ascending = sorted(prices)
+    descending = list(reversed(ascending))
+    print("Q9 -> original:", prices, "| ascending:",
+          ascending, "| descending:", descending)
+
+    # Q10
+    list_x = [1, 2, 3]
+    list_y = list_x
+    list_y.append(4)
+    print("Q10 -> list_x:", list_x, "| list_y:",
+          list_y, "| same object?", list_x is list_y)
+    # Fix: alag list chahiye to .copy() use karo
+    list_x_fixed = [1, 2, 3]
+    list_y_fixed = list_x_fixed.copy()
+    list_y_fixed.append(4)
+    print("       fixed -> list_x_fixed:",
+          list_x_fixed, "| list_y_fixed:", list_y_fixed)
+
+    # Q11
+    matrix = [[1, 2], [3, 4]]
+    matrix_shallow = matrix.copy()
+    matrix_deep = copy.deepcopy(matrix)
+    matrix_shallow[0].append(100)
+    matrix_deep[0].append(200)
+    print("Q11 -> original matrix:", matrix,
+          "(shallow copy ke change se affect hua)")
+    print("       matrix_shallow :", matrix_shallow)
+    print("       matrix_deep    :", matrix_deep,
+          "(original par koi asar nahi)")
+
+    # Q12
+    student_names = ["Aman", "Riya", "Kabir"]
+    student_marks = [78, 91, 65]
+    print("Q12 ->")
+    for name, marks in zip(student_names, student_marks):
+        print(f"   {name}: {marks}")
+
 
 if __name__ == "__main__":
     practice_solutions()
@@ -202,4 +359,4 @@ if __name__ == "__main__":
 # ============================================================
 # Suggested commit message
 # ============================================================
-# feat: add list basics-to-medium practice script (create, access, unpack, analyze, change)
+# feat: add list basics-to-medium practice script (create, access, unpack, analyze, change, sort, copy, combine)
